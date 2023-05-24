@@ -39,6 +39,3 @@ next-env.d.ts
 # File-based project format
 *.iws
 
-# IntelliJ
-out/
-
