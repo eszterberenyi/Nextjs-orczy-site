@@ -1,16 +1,24 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
+import {
+    Drawer,
+    List,
+    ListItem,
+    ListItemButton,
+    ListItemText,
+    IconButton,
+    Typography,
+    Container,
+    Button,
+    Box,
+    AppBar,
+    Toolbar, Grid
+} from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
 import {useState} from "react";
 import Link from "next/link";
-import {Drawer, List, ListItem, ListItemButton, ListItemText} from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
+import Image from 'next/image';
+import Logo from '../public/fekete_logo.svg'
 
 const pages = [
     'EN',
@@ -21,6 +29,16 @@ const pages = [
     'KIÁLLÍTÁS',
     'MÉDIA'
 ];
+
+const links = [
+    'en',
+    'about',
+    'workshops',
+    'map',
+    'research',
+    'exhibition',
+    'media'
+]
 
 function ResponsiveAppBar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -41,71 +59,88 @@ function ResponsiveAppBar() {
         <AppBar position="sticky">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Link href='/'>
+                    <Grid container sx={{display: {xs: 'flex', md: 'none'}}}>
+                        <Grid item sx={{alignSelf: 'center'}} xs={10} sm={11}>
+                            {/*<Image*/}
+                            {/*    src={Logo}*/}
+                            {/*    alt='orczy szomszédok'*/}
+                            {/*    priority={true}*/}
+                            {/*    width='auto'*/}
+                            {/*    height='auto'*/}
+                            {/*/>*/}
+                            <Typography
+                                variant="h4"
+                                noWrap
+                                sx={{
+                                    mr: 2,
+                                    display: {xs: 'flex', md: 'none'},
+                                    fontFamily: 'inherit',
+                                    fontWeight: '700',
+                                    cursor: 'pointer',
+                                    color: 'rgba(0, 0, 0, 0.87)',
+                                    fontSize: '14pt'
+                                }}
+                            >
+                                ORCZY SZOMSZÉDOK
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={2} sm={1}>
+                            <Link href='/' passHref>
+                                <IconButton
+                                    edge='end'
+                                    size="large"
+                                    aria-label="open-menu"
+                                    aria-controls="menu-appbar"
+                                    aria-haspopup="true"
+                                    onClick={() => setIsOpen(!isOpen)}
+                                    sx={{display: {xs: 'flex', md: 'none'}, justifyContent: 'flex-end'}}
+                                >
+                                    <MenuIcon/>
+                                </IconButton>
+                            </Link>
+                        </Grid>
+                    </Grid>
+                    <Drawer
+                        anchor="right"
+                        open={isOpen}
+                        onClose={toggleDrawer(false)}
+                        keepMounted={true}
+                    >
+                        <Box
+                            sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}, width: 'auto'}}
+                            onClick={toggleDrawer(false)}
+                            onKeyDown={toggleDrawer(false)}
+                        >
+                            <List>
+                                <ListItem sx={{justifyContent: 'flex-end'}}>
+                                    <IconButton
+                                        aria-label="close-menu"
+                                        sx={{
+                                            borderRadius: 50,
+                                            width: '25%',
+                                            color: 'white',
+                                        }}
+                                    >
+                                        <CloseIcon/>
+                                    </IconButton>
+                                </ListItem>
+                                {pages.map((page, index) => (
+                                    <Link href={`/${links[index]}`} passHref key={index}>
+                                        <ListItemButton>
+                                            <ListItemText primary={page} sx={{textAlign: 'center'}}/>
+                                        </ListItemButton>
+                                    </Link>
+                                ))}
+                            </List>
+                        </Box>
+                    </Drawer>
+                    <Link href='/' passHref>
                         <Typography
-                            variant="h6"
+                            variant="h3"
                             noWrap
                             sx={{
                                 mr: 2,
                                 display: {xs: 'none', md: 'flex'},
-                                fontFamily: 'inherit',
-                                fontWeight: '700',
-                                cursor: 'pointer',
-                                color: 'rgba(0, 0, 0, 0.87)'
-                            }}
-                        >
-                            ORCZY SZOMSZÉDOK
-                        </Typography>
-                    </Link>
-                    <IconButton
-                        size="large"
-                        aria-label="open-menu"
-                        aria-controls="menu-appbar"
-                        aria-haspopup="true"
-                        onClick={() => setIsOpen(!isOpen)}
-                        sx = {{display: {xs: 'flex', md: 'none'}}}
-                    >
-                        <MenuIcon/>
-                    </IconButton>
-                        <Drawer
-                            anchor="left"
-                            open={isOpen}
-                            onClose={toggleDrawer(false)}
-                            keepMounted={true}
-                        >
-                            <Box
-                                sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}, width: 'auto'}}
-                                onClick={toggleDrawer(false)}
-                                onKeyDown={toggleDrawer(false)}
-                            >
-                                <List>
-                                    <ListItem>
-                                        <IconButton
-                                            aria-label="close-menu"
-                                            sx={{borderRadius: 50, width:'25%', color: 'white'}}
-                                        >
-                                            <CloseIcon />
-                                        </IconButton>
-                                   </ListItem>
-                                    {pages.map((page) => (
-                                        <ListItem key={page} disablePadding>
-                                            <ListItemButton>
-                                                <ListItemText primary={page} sx={{textAlign: 'center'}}/>
-                                            </ListItemButton>
-                                        </ListItem>
-                                    ))}
-                                </List>
-                            </Box>
-                        </Drawer>
-
-                    {/*</Box>*/}
-                    <Link href='/'>
-                        <Typography
-                            variant="h5"
-                            noWrap
-                            sx={{
-                                mr: 2,
-                                display: {xs: 'flex', md: 'none'},
                                 flexGrow: 1,
                                 fontFamily: 'inherit',
                                 fontWeight: 700,
@@ -113,20 +148,32 @@ function ResponsiveAppBar() {
                                 color: 'rgba(0, 0, 0, 0.87)',
                                 textDecoration: 'none',
                                 cursor: 'pointer',
-                                fontSize: '10pt',
+                                fontSize: '20pt',
+                                alignSelf: 'flex-start'
                             }}
                         >
-                            ORCZY SZOMSZÉDOK
+                        ORCZY SZOMSZÉDOK
+                        {/*<Container sx={{display: {xs: 'none', md: 'flex'}}}>*/}
+                        {/*    <Image*/}
+                        {/*        src={Logo}*/}
+                        {/*        alt='orczy szomszédok'*/}
+                        {/*        priority={true}*/}
+                        {/*        width='auto'*/}
+                        {/*        height={50}*/}
+                        {/*    />*/}
+                        {/*</Container>*/}
                         </Typography>
                     </Link>
                     <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}, justifyContent: 'flex-end'}}>
-                        {pages.map((page) => (
-                                <Button
-                                    key={page}
-                                    sx={{my: 2, color: 'rgba(0, 0, 0, 0.87)', display: 'block', fontWeight: 'bolder'}}
-                                >
-                                    {page}
-                                </Button>
+                        {pages.map((page, index) => (
+                                <Link href={`/${links[index]}`} key={index} passHref>
+                                    <Button
+                                        key={index}
+                                        sx={{my: 2, color: 'rgba(0, 0, 0, 0.87)', display: 'block', fontWeight: 'bolder'}}
+                                    >
+                                        {page}
+                                    </Button>
+                                </Link>
                             )
                         )}
                     </Box>
