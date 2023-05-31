@@ -18,7 +18,12 @@ import {useState} from "react";
 import Link from "next/link";
 import CloseIcon from '@mui/icons-material/Close';
 import Image from 'next/image';
-import Logo from '../public/fekete_logo.svg'
+import Logo from '../public/OSZ_egysoros_fekete_WEB.svg'
+import MenuItem from "@mui/material/MenuItem";
+import Menu from "@mui/material/Menu";
+import style from '../styles/ResponsiveAppBar.module.css'
+import MenuPopup from "./PopupMenu";
+import PopupMenu from "./PopupMenu";
 
 const pages = [
     'EN',
@@ -38,6 +43,11 @@ const links = [
     'research',
     'exhibition',
     'media'
+]
+
+const workshopsMenuItems = [
+    'AKTUÁLIS',
+    'ARCHÍV'
 ]
 
 function HideOnScroll({children}) {
@@ -82,29 +92,14 @@ function ResponsiveAppBar() {
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Grid container sx={{display: {xs: 'flex', md: 'none'}}}>
-                        <Grid item sx={{alignSelf: 'center'}} xs={10} sm={11}>
-                            {/*<Image*/}
-                            {/*    src={Logo}*/}
-                            {/*    alt='orczy szomszédok'*/}
-                            {/*    priority={true}*/}
-                            {/*    width='auto'*/}
-                            {/*    height='auto'*/}
-                            {/*/>*/}
-                            <Typography
-                                variant="h4"
-                                noWrap
-                                sx={{
-                                    mr: 2,
-                                    display: {xs: 'flex', md: 'none'},
-                                    fontFamily: 'inherit',
-                                    fontWeight: '700',
-                                    cursor: 'pointer',
-                                    color: 'rgba(0, 0, 0, 0.87)',
-                                    fontSize: '14pt'
-                                }}
-                            >
-                                ORCZY SZOMSZÉDOK
-                            </Typography>
+                        <Grid item sx={{alignSelf: 'center', marginBottom: '5px'}} xs={10} sm={11}>
+                            <Image
+                                src={Logo}
+                                alt='orczy szomszédok'
+                                priority={true}
+                                width='auto'
+                                height='auto'
+                            />
                         </Grid>
                         <Grid item xs={2} sm={1}>
                             <Link href='/' passHref>
@@ -114,7 +109,7 @@ function ResponsiveAppBar() {
                                     aria-controls="menu-appbar"
                                     aria-haspopup="true"
                                     onClick={() => setIsOpen(!isOpen)}
-                                    sx={{display: {xs: 'flex', md: 'none'}, justifyContent: 'flex-end', padding: '8px 8px 8px 15px'}}
+                                    sx={{display: {xs: 'flex', md: 'none'}, justifyContent: 'flex-end'}}
                                 >
                                     <MenuIcon fontSize='large'/>
                                 </IconButton>
@@ -126,6 +121,12 @@ function ResponsiveAppBar() {
                         open={isOpen}
                         onClose={toggleDrawer(false)}
                         keepMounted={true}
+                        PaperProps={{
+                            sx: {
+                                height: '80%',
+                                borderRadius: '0 0 0 50px'
+                            }
+                        }}
                     >
                         <Box
                             sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}, width: 'auto'}}
@@ -139,7 +140,7 @@ function ResponsiveAppBar() {
                                         sx={{
                                             borderRadius: 50,
                                             width: '25%',
-                                            color: 'white',
+                                            color: '#e5e9ec',
                                         }}
                                     >
                                         <CloseIcon/>
@@ -156,56 +157,26 @@ function ResponsiveAppBar() {
                         </Box>
                     </Drawer>
                     <Link href='/' passHref>
-                        <Typography
-                            variant="h3"
-                            noWrap
-                            sx={{
-                                mr: 2,
-                                display: {xs: 'none', lg: 'flex'},
-                                flexGrow: 1,
-                                fontFamily: 'inherit',
-                                fontWeight: 700,
-                                letterSpacing: '.3rem',
-                                color: 'rgba(0, 0, 0, 0.87)',
-                                textDecoration: 'none',
-                                cursor: 'pointer',
-                                fontSize: '20pt',
-                                alignSelf: 'flex-start'
-                            }}
-                        >
-                        ORCZY SZOMSZÉDOK
-                        {/*<Container sx={{display: {xs: 'none', md: 'flex'}}}>*/}
-                        {/*    <Image*/}
-                        {/*        src={Logo}*/}
-                        {/*        alt='orczy szomszédok'*/}
-                        {/*        priority={true}*/}
-                        {/*        width='auto'*/}
-                        {/*        height={50}*/}
-                        {/*    />*/}
-                        {/*</Container>*/}
-                        </Typography>
-                        <Typography
-                            variant="h4"
-                            noWrap
-                            sx={{
-                                mr: 2,
-                                display: {xs: 'none', md: 'flex', lg: 'none'},
-                                fontFamily: 'inherit',
-                                fontWeight: '700',
-                                cursor: 'pointer',
-                                color: 'rgba(0, 0, 0, 0.87)',
-                                fontSize: '12pt'
-                            }}
-                        >
-                            ORCZY SZOMSZÉDOK
-                        </Typography>
+                        <Container sx={{display: {xs: 'none', md: 'flex'}, marginBottom: '5px'}}>
+                            <Image
+                                src={Logo}
+                                alt='orczy szomszédok'
+                                priority={true}
+                                width='auto'
+                                height='auto'
+                            />
+                        </Container>
                     </Link>
                     <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}, justifyContent: 'flex-end'}}>
                         {pages.map((page, index) => (
+                            page === 'FOGLALKOZÁSOK' ?
+                            <PopupMenu page='FOGLALKOZÁSOK' subPages={workshopsMenuItems}/>
+                                :
                                 <Link href={`/${links[index]}`} key={index} passHref>
                                     <Button
                                         key={index}
                                         sx={{my: 2, color: 'rgba(0, 0, 0, 0.87)', display: 'block', fontWeight: 'bolder'}}
+                                        className={style.underline}
                                     >
                                         {page}
                                     </Button>

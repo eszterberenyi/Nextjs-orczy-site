@@ -46,8 +46,8 @@ export const mainTheme = createTheme({
             styleOverrides: {
                  paper: {
                      // background: 'linear-gradient(0deg, rgba(188,248,249,1) 0%, rgba(253,187,45,1) 100%)'
-                     background: 'rgba(99,23,198,1)',
-                     color: 'white',
+                     background: '#5b7c99',
+                     color: '#e5e9ec',
                      fontWeight: 'bolder'
 
 }

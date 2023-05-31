@@ -1,9 +1,39 @@
-/*.item {*/
-/*    margin-bottom: 1.2rem;*/
-/*    font-size: 1.5rem;*/
-/*    font-weight: 500;*/
-/*}*/
+.underline:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.87);
+    visibility: hidden;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: .1s linear;
+}
+.underline:hover:before,
+.underline:focus:before {
+    visibility: visible;
+    transform: scaleX(1);
+}
 
-/*input[type="checkbox"]:checked ~ .menu {*/
-/*    transform: translateX(0);*/
-/*}*/
+.popup:before {
+    content: "";
+    position: absolute;
+    width: 70%;
+    margin-left: 5px;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.87);
+    visibility: hidden;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: .1s linear;
+}
+
+.popup:hover:before,
+.popup:focus:before {
+    visibility: visible;
+    transform: scaleX(1);
+}
