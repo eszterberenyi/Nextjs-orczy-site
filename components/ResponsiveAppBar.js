@@ -11,7 +11,7 @@ import {
     Button,
     Box,
     AppBar,
-    Toolbar, Grid
+    Toolbar, Grid, useScrollTrigger, Slide
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import {useState} from "react";
@@ -40,7 +40,28 @@ const links = [
     'media'
 ]
 
-function ResponsiveAppBar() {
+function HideOnScroll({children}) {
+    const trigger = useScrollTrigger();
+
+    return (
+        <Slide
+            appear={false}
+            direction="down"
+            in={!trigger}
+            timeout={{
+                enter: 200,
+                exit: 300
+            }}
+            easing={{
+            enter: "linear",
+            exit: "linear"
+        }}>
+            {children}
+        </Slide>
+    );
+}
+
+function ResponsiveAppBar({children}) {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleDrawer = (anchor, open) => (event) => {
@@ -56,6 +77,7 @@ function ResponsiveAppBar() {
     };
 
     return (
+        <HideOnScroll>
         <AppBar position="sticky">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
@@ -87,15 +109,14 @@ function ResponsiveAppBar() {
                         <Grid item xs={2} sm={1}>
                             <Link href='/' passHref>
                                 <IconButton
-                                    edge='end'
-                                    size="large"
+                                    // size="large"
                                     aria-label="open-menu"
                                     aria-controls="menu-appbar"
                                     aria-haspopup="true"
                                     onClick={() => setIsOpen(!isOpen)}
-                                    sx={{display: {xs: 'flex', md: 'none'}, justifyContent: 'flex-end'}}
+                                    sx={{display: {xs: 'flex', md: 'none'}, justifyContent: 'flex-end', padding: '8px 8px 8px 15px'}}
                                 >
-                                    <MenuIcon/>
+                                    <MenuIcon fontSize='large'/>
                                 </IconButton>
                             </Link>
                         </Grid>
@@ -140,7 +161,7 @@ function ResponsiveAppBar() {
                             noWrap
                             sx={{
                                 mr: 2,
-                                display: {xs: 'none', md: 'flex'},
+                                display: {xs: 'none', lg: 'flex'},
                                 flexGrow: 1,
                                 fontFamily: 'inherit',
                                 fontWeight: 700,
@@ -163,6 +184,21 @@ function ResponsiveAppBar() {
                         {/*    />*/}
                         {/*</Container>*/}
                         </Typography>
+                        <Typography
+                            variant="h4"
+                            noWrap
+                            sx={{
+                                mr: 2,
+                                display: {xs: 'none', md: 'flex', lg: 'none'},
+                                fontFamily: 'inherit',
+                                fontWeight: '700',
+                                cursor: 'pointer',
+                                color: 'rgba(0, 0, 0, 0.87)',
+                                fontSize: '12pt'
+                            }}
+                        >
+                            ORCZY SZOMSZÉDOK
+                        </Typography>
                     </Link>
                     <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}, justifyContent: 'flex-end'}}>
                         {pages.map((page, index) => (
@@ -180,6 +216,7 @@ function ResponsiveAppBar() {
                 </Toolbar>
             </Container>
         </AppBar>
+        </HideOnScroll>
     );
 }
 
