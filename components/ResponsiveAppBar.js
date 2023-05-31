@@ -61,7 +61,7 @@ function HideOnScroll({children}) {
     );
 }
 
-function ResponsiveAppBar({children}) {
+function ResponsiveAppBar() {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleDrawer = (anchor, open) => (event) => {
