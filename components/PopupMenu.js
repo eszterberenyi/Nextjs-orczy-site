@@ -41,6 +41,7 @@ const PopupMenu = ({page, subPages}) => {
                     <Link href={`/`} key={index} passHref>
                         <MenuItem
                             className={style.popup}
+                            key={index}
                             sx={{
                                 fontSize: '14px',
                                 '&:hover': {backgroundColor: 'transparent'}

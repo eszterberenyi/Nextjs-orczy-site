@@ -10,7 +10,7 @@ export const mainTheme = createTheme({
             main: '#ede7f6',
         },
         text: {
-            primary: '#000000',
+            primary: 'rgba(0, 0, 0, 0.87)',
         },
         info: {
             main: '#9e9e9e',
@@ -46,8 +46,8 @@ export const mainTheme = createTheme({
             styleOverrides: {
                  paper: {
                      // background: 'linear-gradient(0deg, rgba(188,248,249,1) 0%, rgba(253,187,45,1) 100%)'
-                     background: '#5b7c99',
-                     color: '#e5e9ec',
+                     background: '#7a49a5',
+                     color: '#f5f5f5',
                      fontWeight: 'bolder'
 
 }
