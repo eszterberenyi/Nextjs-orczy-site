@@ -11,6 +11,7 @@ export default function Home() {
       <>
         <Head>
           {/*<link rel="icon" href="/favicon.png" />*/}
+          <title>OSZ</title>
         </Head>
         <Layout poppins={montserrat.className}></Layout>
       </>
