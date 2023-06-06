@@ -17,9 +17,8 @@ export const Footer = () => {
                 bottom: 0,
             }}
         >
-                <Container sx={{display: 'flex', justifyContent: 'flex-start'}}>
+                <Container sx={{display: 'flex', justifyContent: 'flex-start', marginLeft: 0}}>
                     <Typography
-                        // sx={{display: {xs: 'none', sm: 'flex'}}}
                         color="textSecondary" variant="p"
                         fontSize='12px'>
                         The Orczy Szomszédok project is funded by BERTHA Foundation

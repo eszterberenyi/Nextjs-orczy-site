@@ -9,18 +9,22 @@ import {
 } from 'material-ui-popup-state/hooks'
 import Link from "next/link";
 import style from '../styles/ResponsiveAppBar.module.css'
+import { useRouter } from 'next/router';
 
 const PopupMenu = ({page, subPages}) => {
     const popupState = usePopupState({
         variant: 'popover',
         popupId: 'demoMenu',
     })
+    const router = useRouter();
+
     return (
         <>
             <Button
                 disableRipple
                 sx={{my: 2, color: 'rgba(0, 0, 0, 0.87)', display: 'block', fontWeight: 'bolder'}}
                 {...bindHover(popupState)}
+                className={`${(router.asPath === '/workshops#current' || router.asPath === '/workshops#archive') && style.active}`}
             >
                 {page}
             </Button>
@@ -37,18 +41,18 @@ const PopupMenu = ({page, subPages}) => {
                         }
                 }}
             >
-                {subPages.map((page, index) => (
-                    <Link href={`/`} key={index} passHref>
+                {subPages.map((page) => (
+                    <Link href={`/workshops#${page.link}`} key={page.name} passHref>
                         <MenuItem
-                            className={style.popup}
-                            key={index}
+                            className={`${router.asPath === `/workshops#${page.link}` && style.active} ${style.popup}`}
+                            key={page.name}
                             sx={{
                                 fontSize: '14px',
                                 '&:hover': {backgroundColor: 'transparent'}
                             }}
                             disableRipple
                             onClick={popupState.close}>
-                            {page}
+                            {page.name}
                         </MenuItem>
                     </Link>
                 ))}

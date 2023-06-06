@@ -12,9 +12,18 @@
     transition: .1s linear;
 }
 .underline:hover:before,
-.underline:focus:before {
+.underline:focus:before{
     visibility: visible;
     transform: scaleX(1);
+}
+
+.active{
+    color: #7a49a5;
+    font-weight: bolder;
+}
+
+.activemobile {
+    color: #FDC623
 }
 
 .popup:before {
