@@ -22,7 +22,7 @@ const PopupMenu = ({page, subPages}) => {
         <>
             <Button
                 disableRipple
-                sx={{my: 2, color: 'rgba(0, 0, 0, 0.87)', display: 'block', fontWeight: 'bolder'}}
+                sx={{my: 2, color: 'text.primary', display: 'block', fontWeight: 'bolder'}}
                 {...bindHover(popupState)}
                 className={`${(router.asPath === '/workshops#current' || router.asPath === '/workshops#archive') && style.active}`}
             >
@@ -32,11 +32,11 @@ const PopupMenu = ({page, subPages}) => {
                 {...bindMenu(popupState)}
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
                 transformOrigin={{ vertical: 'top', horizontal: 'center' }}
-                elevation={2}
+                elevation={1}
                 PaperProps={{
                     sx:
                         {
-                            backgroundColor: '#FDC623',
+                            backgroundColor: 'primary.main',
                             width: '150px',
                         }
                 }}

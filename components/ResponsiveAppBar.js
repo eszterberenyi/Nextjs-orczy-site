@@ -34,7 +34,7 @@ function ResponsiveAppBar() {
 
     return (
         <HideOnScroll>
-        <AppBar position="sticky">
+        <AppBar position="sticky" elevation={1}>
             <Container maxWidth="false">
                 <Toolbar disableGutters>
                     <MobileAppBar

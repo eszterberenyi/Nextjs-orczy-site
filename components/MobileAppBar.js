@@ -89,7 +89,7 @@ export default function MobileAppBar({menuItems}) {
                                     borderRadius: 50,
                                     margin:'0 0 0 16px',
                                     width: '25%',
-                                    color: '#e5e9ec',
+                                    color: 'secondary.main',
                                 }}
                                 key={keyTwo}
                             >

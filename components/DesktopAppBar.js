@@ -39,7 +39,7 @@ export default function DesktopAppBar({menuItems}) {
                             >
                                 <Button
                                     key={item.name}
-                                    sx={{my: 2, color: 'rgba(0, 0, 0, 0.87)', display: 'block', fontWeight: 'bolder'}}
+                                    sx={{my: 2, color: 'text.primary', display: 'block', fontWeight: 'bolder'}}
                                     className={`${router.pathname === `/${item.link}` && `${style.active}`} ${style.underline}`}
                                 >
                                     {item.name}
