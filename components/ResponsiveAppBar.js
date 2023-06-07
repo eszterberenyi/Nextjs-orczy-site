@@ -5,7 +5,7 @@ import {
     Toolbar, useScrollTrigger, Slide
 } from "@mui/material";
 import MobileAppBar from "./MobileAppBar";
-import {menuItems} from '../utils/constants'
+import {menuItems} from '../utils/menuItems'
 import DesktopAppBar from "./DesktopAppBar";
 
 function HideOnScroll({children}) {
