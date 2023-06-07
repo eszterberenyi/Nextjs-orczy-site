@@ -43,15 +43,17 @@ export default function MobileAppBar({menuItems}) {
     return (
         <>
             <Grid container sx={{display: {xs: 'flex', md: 'none'}}}>
-                <Grid item sx={{alignSelf: 'center', marginBottom: '5px'}} xs={10} sm={11}>
-                    <Image
-                        src={Logo}
-                        alt='orczy szomszédok'
-                        priority={true}
-                        width='auto'
-                        height='auto'
-                    />
-                </Grid>
+                    <Grid item sx={{alignSelf: 'center', marginBottom: '5px'}} xs={10} sm={11}>
+                        <Link href='/' passHref>
+                            <Image
+                                src={Logo}
+                                alt='orczy szomszédok'
+                                priority={true}
+                                width='auto'
+                                height='auto'
+                            />
+                            </Link>
+                    </Grid>
                 <Grid item xs={2} sm={1}>
                     <IconButton
                         aria-label="open-menu"
