@@ -9,7 +9,6 @@ export default class MyDocument extends Document {
             <Html lang="en">
                 <Head>
                     {this.props.emotionStyleTags}
-                    <title>OSZ</title>
                 </Head>
                 <body>
                 <Main />
