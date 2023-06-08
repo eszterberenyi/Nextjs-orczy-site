@@ -46,12 +46,12 @@ export const mainTheme = createTheme({
             styleOverrides: {
                  paper: {
                      // background: 'linear-gradient(0deg, rgba(188,248,249,1) 0%, rgba(253,187,45,1) 100%)'
-                     background: '#FDC623',
-                     color: 'rgba(0, 0, 0, 0.87)',
+                     backgroundColor: 'rgb(131,58,180)',
+                     background: 'linear-gradient(29deg, rgba(131,58,180,1) 30%, rgba(253,37,29,1) 30%, rgba(253,198,35,1) 71%)',                     color: 'rgba(0, 0, 0, 0.87)',
                      fontWeight: 'bolder',
                      width: '100%',
                      height: '100%',
-                     opacity: 0.8
+                     opacity: 1
 
 }
             }
