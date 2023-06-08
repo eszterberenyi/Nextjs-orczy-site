@@ -1,6 +1,5 @@
 import {
     Box,
-    Divider,
     Drawer,
     Grid,
     IconButton,
@@ -17,7 +16,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import * as React from "react";
 import {useState} from "react";
 import { v4 as uuidv4 } from 'uuid';
-import DropdownMenu from "./DropdownMenu";
 import style from "../styles/ResponsiveAppBar.module.css";
 import { useRouter } from 'next/router';
 
@@ -62,25 +60,20 @@ export default function MobileAppBar({menuItems}) {
                         onClick={() => setIsDrawerOpen(!isDrawerOpen)}
                         sx={{display: {xs: 'flex', md: 'none'}, justifyContent: 'flex-end'}}
                     >
-                        <MenuIcon fontSize='large'/>
+                        {!isDrawerOpen && <MenuIcon fontSize='large'/>}
                     </IconButton>
                 </Grid>
             </Grid>
             <Drawer
-                anchor="right"
+                anchor="top"
                 open={isDrawerOpen}
                 onClose={toggleDrawer(false)}
                 keepMounted={true}
-                PaperProps={{
-                    sx: {
-                        borderRadius: '0 0 0 30px'
-                    }
-                }}
             >
                 <Box
                     sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}, width: 'auto'}}
                 >
-                    <List>
+                    <List sx={{width: '100%'}}>
                         <ListItem
                             sx={{justifyContent: 'flex-end'}}
                             key={keyOne}>
@@ -89,35 +82,38 @@ export default function MobileAppBar({menuItems}) {
                                 onClick={() => setIsDrawerOpen(!isDrawerOpen)}
                                 sx={{
                                     borderRadius: 50,
-                                    margin:'0 0 0 16px',
-                                    width: '25%',
-                                    color: 'secondary.main',
+                                    width: '10%',
+                                    color: 'text.primary',
+                                    paddingTop: '0px'
                                 }}
                                 key={keyTwo}
                             >
-                                <CloseIcon/>
+                                <CloseIcon fontSize='inherit'/>
                             </IconButton>
                         </ListItem>
                         {menuItems.map((item) => (
-                            Array.isArray(item.dropdown) ?
-                                <DropdownMenu
-                                    key={item.name}
-                                    page={item.name}
-                                    subPages={item.dropdown}
-                                />
-                                :
+                            // Array.isArray(item.dropdown) ?
+                            //     <DropdownMenu
+                            //         key={item.name}
+                            //         page={item.name}
+                            //         subPages={item.dropdown}
+                            //     />
+                            //     :
                                 <Link
                                     href={`/${item.link}`}
                                     passHref
                                     key={item.name}>
-                                    <Divider/>
+                                    {/*<Divider/>*/}
                                     <ListItemButton
                                         key={item.name}
                                         onClick={toggleDrawer(false)}
                                         onKeyDown={toggleDrawer(false)}
-                                        className={`${router.pathname === `/${item.link}` && style.activemobile}`}
+                                        className={`${router.pathname === `/${item.link}` && style.active}`}
                                     >
-                                        <ListItemText primary={item.name} sx={{textAlign: 'center'}}/>
+                                        <ListItemText
+                                            primary={item.name}
+                                            primaryTypographyProps={{sx:{ textAlign: 'center', fontSize: '1.2rem'}}}
+                                        />
                                     </ListItemButton>
                                 </Link>
                         ))}

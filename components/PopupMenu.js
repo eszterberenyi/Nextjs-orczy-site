@@ -18,13 +18,20 @@ const PopupMenu = ({page, subPages}) => {
     })
     const router = useRouter();
 
+    const isCurrentPath = () => {
+        if (router.asPath === '/workshops#current' || router.asPath === '/workshops#archive') {
+            return style.active
+        } return ''
+    }
+
     return (
         <>
             <Button
                 disableRipple
                 sx={{my: 2, color: 'text.primary', display: 'block', fontWeight: 'bolder'}}
                 {...bindHover(popupState)}
-                className={`${(router.asPath === '/workshops#current' || router.asPath === '/workshops#archive') && style.active}`}
+                onClick={popupState.isOpen === true ? popupState.close : popupState.open}
+                className={isCurrentPath()}
             >
                 {page}
             </Button>

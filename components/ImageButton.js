@@ -7,17 +7,17 @@ import {Grid} from "@mui/material";
 const images = [
     {
         url: 'https://hips.hearstapps.com/hmg-prod/images/happy-dog-outdoors-royalty-free-image-1652927740.jpg?crop=0.447xw:1.00xh;0.187xw,0&resize=980:*',
-        title: 'Breakfast',
+        title: 'Térképek',
         width: '100%',
     },
     {
         url: 'https://hips.hearstapps.com/hmg-prod/images/happy-dog-outdoors-royalty-free-image-1652927740.jpg?crop=0.447xw:1.00xh;0.187xw,0&resize=980:*',
-        title: 'Burgers',
+        title: 'Lakógyűlések',
         width: '100%',
     },
     {
         url: 'https://hips.hearstapps.com/hmg-prod/images/happy-dog-outdoors-royalty-free-image-1652927740.jpg?crop=0.447xw:1.00xh;0.187xw,0&resize=980:*',
-        title: 'Camera',
+        title: 'Makettépítés',
         width: '100%',
     },
 ];

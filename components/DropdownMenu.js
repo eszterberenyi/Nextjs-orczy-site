@@ -1,4 +1,4 @@
-import {Divider, List, ListItemButton, ListItemText} from "@mui/material";
+import {List, ListItemButton, ListItemText} from "@mui/material";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import Collapse from "@mui/material/Collapse";
@@ -19,13 +19,16 @@ export default function DropdownMenu({page, subPages}) {
 
     return (
         <React.Fragment key={page}>
-            <Divider/>
+            {/*<Divider/>*/}
             <ListItemButton
                 disableRipple
                 onClick={handleNestedListClick}
                 key={page}
             >
-                <ListItemText primary={page} sx={{textAlign: 'center'}}/>
+                <ListItemText
+                    primary={page}
+                    primaryTypographyProps={{textAlign: 'center', paddingLeft: '35px', fontSize: '1.2rem'}}
+                />
                 {open ? <ExpandLess/> : <ExpandMore/>}
             </ListItemButton>
             <Collapse
@@ -42,11 +45,11 @@ export default function DropdownMenu({page, subPages}) {
                             <ListItemButton
                                 sx={{pl: 2}}
                                 key={subPage.name}
-                                className={`${router.asPath === `/workshops#${subPage.link}` && style.activemobile}`}
+                                className={`${router.asPath === `/workshops#${subPage.link}` && style.active}`}
                             >
                                 <ListItemText
                                     primary={subPage.name}
-                                    primaryTypographyProps={{sx:{ textAlign: 'left'}}}
+                                    primaryTypographyProps={{sx:{ textAlign: 'center', fontSize: '1.2rem'}}}
                                 />
                             </ListItemButton>
                         </Link>

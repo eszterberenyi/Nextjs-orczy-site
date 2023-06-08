@@ -3,12 +3,13 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
 import createEmotionCache from "../utils/createEmotionCache";
 
-export default class MyDocument extends Document {
-    render() {
+export default function MyDocument(props) {
+    const { emotionStyleTags } = props;
         return (
             <Html lang="en">
                 <Head>
-                    {this.props.emotionStyleTags}
+                    {emotionStyleTags}
+                    <meta name="emotion-insertion-point" content="" />
                 </Head>
                 <body>
                 <Main />
@@ -16,7 +17,6 @@ export default class MyDocument extends Document {
                 </body>
             </Html>
         );
-    }
 }
 
 MyDocument.getInitialProps = async (ctx) => {

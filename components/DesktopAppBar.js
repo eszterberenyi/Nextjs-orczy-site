@@ -2,7 +2,6 @@ import Link from "next/link";
 import {Box, Button, Container} from "@mui/material";
 import Image from "next/image";
 import Logo from "../public/OSZ_egysoros_fekete_WEB.svg";
-import PopupMenu from "./PopupMenu";
 import style from "../styles/ResponsiveAppBar.module.css";
 import * as React from "react";
 import { useRouter } from 'next/router';
@@ -25,13 +24,13 @@ export default function DesktopAppBar({menuItems}) {
             </Link>
             <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}, justifyContent: 'flex-end'}}>
                 {menuItems.map((item) => (
-                        Array.isArray(item.dropdown) ?
-                            <PopupMenu
-                                page={item.name}
-                                subPages={item.dropdown}
-                                key={item.name}
-                            />
-                            :
+                        // Array.isArray(item.dropdown) ?
+                        //     <PopupMenu
+                        //         page={item.name}
+                        //         subPages={item.dropdown}
+                        //         key={item.name}
+                        //     />
+                        //     :
                             <Link
                                 href={`/${item.link}`}
                                 key={item.name}

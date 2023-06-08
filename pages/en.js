@@ -6,7 +6,7 @@ export default function En() {
         <Layout
             title='En'
         >
-            <div>HEEE</div>
+            <div>Content will come</div>
         </Layout>
     )
 }

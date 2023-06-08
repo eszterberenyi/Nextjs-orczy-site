@@ -6,7 +6,7 @@ export default function About() {
         <Layout
             title='Rólunk'
         >
-            <div>HEEE</div>
+            <div>Stuff will be here</div>
         </Layout>
     )
 }
