@@ -7,6 +7,7 @@ import {
 import MobileAppBar from "./MobileAppBar";
 import {menuItems} from '../utils/menuItems'
 import DesktopAppBar from "./DesktopAppBar";
+import {useEffect, useRef, useState} from "react";
 
 function HideOnScroll({children}) {
     const trigger = useScrollTrigger();
@@ -30,15 +31,34 @@ function HideOnScroll({children}) {
 }
 
 function ResponsiveAppBar() {
+    const appBarRef = useRef(null);
+    const [appBarHeight, setAppBarHeight] = useState(0);
+
+    useEffect(() => {
+        const handleResize = () => {
+            const appBar = appBarRef.current;
+            if (appBar) {
+                const height = appBar.offsetHeight;
+                setAppBarHeight(height);
+            }
+        };
+
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
 
     return (
         <HideOnScroll>
-        <AppBar position="sticky" elevation={1}>
+        <AppBar position="sticky" elevation={0} ref={appBarRef}>
             <Container maxWidth="false">
                 <Toolbar disableGutters>
                     <MobileAppBar
                         menuItems={menuItems}
+                        appBarHeight={appBarHeight}
                     />
                     <DesktopAppBar
                         menuItems={menuItems}

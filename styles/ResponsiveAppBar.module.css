@@ -18,12 +18,8 @@
 }
 
 .active{
-    color: #7a49a5;
+    color: #833ab4;
     font-weight: bolder;
-}
-
-.activemobile {
-    color: #FDC623
 }
 
 .popup:before {

@@ -4,7 +4,6 @@ import {
     Grid,
     IconButton,
     List,
-    ListItem,
     ListItemButton,
     ListItemText
 } from "@mui/material";
@@ -12,17 +11,15 @@ import Image from "next/image";
 import Logo from "../public/OSZ_egysoros_fekete_WEB.svg";
 import Link from "next/link";
 import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import * as React from "react";
 import {useState} from "react";
-import { v4 as uuidv4 } from 'uuid';
 import style from "../styles/ResponsiveAppBar.module.css";
 import { useRouter } from 'next/router';
+import Backdrop from "@mui/material/Backdrop";
 
-const keyOne = uuidv4()
-const keyTwo = uuidv4()
 
-export default function MobileAppBar({menuItems}) {
+export default function MobileAppBar({menuItems, appBarHeight}) {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     const toggleDrawer = (anchor, open) => (event) => {
@@ -60,37 +57,34 @@ export default function MobileAppBar({menuItems}) {
                         onClick={() => setIsDrawerOpen(!isDrawerOpen)}
                         sx={{display: {xs: 'flex', md: 'none'}, justifyContent: 'flex-end'}}
                     >
-                        {!isDrawerOpen && <MenuIcon fontSize='large'/>}
+                        {isDrawerOpen ?
+                            <CloseOutlinedIcon fontSize='large'/>
+                            : <MenuIcon fontSize='large'/>
+                        }
                     </IconButton>
                 </Grid>
             </Grid>
             <Drawer
-                anchor="top"
+                anchor="right"
+                elevation={0}
                 open={isDrawerOpen}
                 onClose={toggleDrawer(false)}
                 keepMounted={true}
+                PaperProps={{
+                    sx: {
+                        marginTop: `${appBarHeight-1}px`
+                    }
+                }}
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    invisible: true,
+                    style: { backgroundColor: 'transparent' },
+                }}
             >
                 <Box
                     sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}, width: 'auto'}}
                 >
                     <List sx={{width: '100%'}}>
-                        <ListItem
-                            sx={{justifyContent: 'flex-end'}}
-                            key={keyOne}>
-                            <IconButton
-                                aria-label="close-menu"
-                                onClick={() => setIsDrawerOpen(!isDrawerOpen)}
-                                sx={{
-                                    borderRadius: 50,
-                                    width: '10%',
-                                    color: 'text.primary',
-                                    paddingTop: '0px'
-                                }}
-                                key={keyTwo}
-                            >
-                                <CloseIcon fontSize='inherit'/>
-                            </IconButton>
-                        </ListItem>
                         {menuItems.map((item) => (
                             // Array.isArray(item.dropdown) ?
                             //     <DropdownMenu
@@ -99,23 +93,23 @@ export default function MobileAppBar({menuItems}) {
                             //         subPages={item.dropdown}
                             //     />
                             //     :
-                                <Link
-                                    href={`/${item.link}`}
-                                    passHref
-                                    key={item.name}>
-                                    {/*<Divider/>*/}
-                                    <ListItemButton
-                                        key={item.name}
-                                        onClick={toggleDrawer(false)}
-                                        onKeyDown={toggleDrawer(false)}
-                                        className={`${router.pathname === `/${item.link}` && style.active}`}
-                                    >
-                                        <ListItemText
-                                            primary={item.name}
-                                            primaryTypographyProps={{sx:{ textAlign: 'center', fontSize: '1.2rem'}}}
-                                        />
-                                    </ListItemButton>
-                                </Link>
+                            <Link
+                                href={`/${item.link}`}
+                                passHref
+                                key={item.name}>
+                                {/*<Divider/>*/}
+                                <ListItemButton
+                                    key={item.name}
+                                    onClick={toggleDrawer(false)}
+                                    onKeyDown={toggleDrawer(false)}
+                                    className={`${router.pathname === `/${item.link}` && style.active}`}
+                                >
+                                    <ListItemText
+                                        primary={item.name}
+                                        primaryTypographyProps={{sx:{ textAlign: 'center', fontSize: '1.2rem'}}}
+                                    />
+                                </ListItemButton>
+                            </Link>
                         ))}
                     </List>
                 </Box>
