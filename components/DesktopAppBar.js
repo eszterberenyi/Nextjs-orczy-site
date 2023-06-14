@@ -24,26 +24,19 @@ export default function DesktopAppBar({menuItems}) {
             </Link>
             <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}, justifyContent: 'flex-end'}}>
                 {menuItems.map((item) => (
-                        // Array.isArray(item.dropdown) ?
-                        //     <PopupMenu
-                        //         page={item.name}
-                        //         subPages={item.dropdown}
-                        //         key={item.name}
-                        //     />
-                        //     :
-                            <Link
-                                href={`/${item.link}`}
-                                key={item.name}
-                                passHref
-                            >
-                                <Button
-                                    key={item.name}
-                                    sx={{my: 2, color: 'text.primary', display: 'block', fontWeight: 'bolder'}}
-                                    className={`${router.pathname === `/${item.link}` && `${style.active}`} ${style.underline}`}
-                                >
-                                    {item.name}
-                                </Button>
-                            </Link>
+                    <Link
+                        href={`/${item.link}`}
+                        key={item.name}
+                        passHref
+                    >
+                        <Button
+                            key={item.name}
+                            sx={{my: 2, color: 'text.primary', display: 'block', fontWeight: 'bolder'}}
+                            className={`${router.pathname === `/${item.link}` && `${style.active}`} ${style.underline}`}
+                        >
+                            {item.name}
+                        </Button>
+                    </Link>
                     )
                 )}
             </Box>

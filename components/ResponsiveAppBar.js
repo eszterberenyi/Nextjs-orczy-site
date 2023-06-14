@@ -37,6 +37,7 @@ function ResponsiveAppBar() {
     useEffect(() => {
         const handleResize = () => {
             const appBar = appBarRef.current;
+            // setAppBarHeight(appBar.offsetHeight);
             if (appBar) {
                 const height = appBar.offsetHeight;
                 setAppBarHeight(height);
@@ -45,9 +46,9 @@ function ResponsiveAppBar() {
 
         handleResize();
 
-        window.addEventListener('resize', handleResize);
-
-        return () => window.removeEventListener('resize', handleResize);
+        // window.addEventListener('resize', handleResize);
+        //
+        // return () => window.removeEventListener('resize', handleResize);
     }, []);
 
 

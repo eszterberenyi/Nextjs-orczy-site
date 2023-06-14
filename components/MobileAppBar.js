@@ -1,5 +1,4 @@
 import {
-    Box,
     Drawer,
     Grid,
     IconButton,
@@ -81,23 +80,15 @@ export default function MobileAppBar({menuItems, appBarHeight}) {
                     style: { backgroundColor: 'transparent' },
                 }}
             >
-                <Box
-                    sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}, width: 'auto'}}
-                >
+                {/*<Box*/}
+                {/*    sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}, width: 'auto'}}*/}
+                {/*>*/}
                     <List sx={{width: '100%'}}>
                         {menuItems.map((item) => (
-                            // Array.isArray(item.dropdown) ?
-                            //     <DropdownMenu
-                            //         key={item.name}
-                            //         page={item.name}
-                            //         subPages={item.dropdown}
-                            //     />
-                            //     :
                             <Link
                                 href={`/${item.link}`}
                                 passHref
                                 key={item.name}>
-                                {/*<Divider/>*/}
                                 <ListItemButton
                                     key={item.name}
                                     onClick={toggleDrawer(false)}
@@ -112,7 +103,7 @@ export default function MobileAppBar({menuItems, appBarHeight}) {
                             </Link>
                         ))}
                     </List>
-                </Box>
+                {/*</Box>*/}
             </Drawer>
         </>
     )
