@@ -2,8 +2,6 @@ import Layout from "@/components/Layout";
 import React, {useEffect, useState} from "react";
 import Grid from "@mui/material/Grid";
 import Image from "next/image";
-import City from "../public/OSZ_ketsoros_sarga.svg";
-import Cat from '../public/cat.jpg'
 import {homeContent} from "../utils/pageContents"
 import Typography from "@mui/material/Typography";
 import ButtonBases from "../components/ImageButton";
@@ -48,47 +46,55 @@ export default function Home() {
                 justifyContent="center"
                 padding='10px'
             >
+                <ItemTransition>
+                    <Grid container spacing={0} alignItems="center" justifyContent="center">
+                        <Grid item>
+                            <Image
+                                src={homeContent.images.opening}
+                                alt='azt beszélik az orczyn felirat egy térképrészletre írva'
+                                priority={true}
+                                style={{maxWidth: '100%', height: 'auto'}}
 
-                <Grid item container
-                      alignItems="center"
-                      justifyContent="center"
-                >
-                    {/*<Grid item xs={12}>*/}
-                        <Image
-                            src={Cat}
-                            alt='drawing of city streets from above'
-                            priority={true}
-                            style={{ maxWidth: '100%', height: 'auto' }}
-                            // width={250} // Set the desired width for scaling down
-                            // height={150} // Set the desired height for scaling down
-                            // layout="responsive" // Ensure the image maintains its aspect ratio
-                            // objectFit="scale-down"
-                            // objectPosition='50% 50%'
-                        >
+                            />
+                        </Grid>
+                        <Grid item style={{position: 'absolute', top: 200}} sx={{display: {xs: 'none', md: 'flex'}}}>
+                            <Image
+                                src={homeContent.images.theySay}
+                                alt=''
+                                style={{maxWidth: '100%', height: 'auto', paddingLeft: '20px'}}
+                            />
+                        </Grid>
+                        <Grid item style={{position: 'absolute'}} sx={{display: {xs: 'flex', md: 'none'}}}>
+                            <Image
+                                src={homeContent.images.theySay}
+                                alt=''
+                                style={{maxWidth: '100%', height: 'auto', paddingLeft: '20px'}}
+                            />
+                        </Grid>
+                    </Grid>
+                </ItemTransition>
 
-                        </Image>
-                    {/*</Grid>*/}
-                </Grid>
 
                 <ItemTransition>
                     <Grid item container>
                         <Typography variant='h5' fontWeight='bold'>{homeContent.titles.about}</Typography>
                     </Grid>
+
                     <Grid item container xs={12} md={6}>
 
                         <Grid item>
                             <Image
-                                src={Cat}
-                                alt='drawing of city streets from above'
+                                src={homeContent.images.aboutUs}
+                                alt='kép a projekttagokról'
                                 priority={true}
-                                style={{ maxWidth: '100%', height: 'auto' }}
+                                style={{maxWidth: '100%', height: 'auto'}}
                             >
 
                             </Image>
                         </Grid>
                     </Grid>
 
-                    <Grid item container direction="column" spacing={6} xs={12} md={6}>
+                    <Grid item container direction="column" spacing={2} xs={12} md={6}>
                         <Grid item>
                             <Typography>{homeContent.aboutUs}</Typography>
                         </Grid>
@@ -97,7 +103,14 @@ export default function Home() {
                                 <p>This project is funded by:</p>
                             </Grid>
                             <Grid item>
-                                <p>Bertha Logo</p>
+                                <Grid item>
+                                    <Image
+                                        src={homeContent.images.bertha}
+                                        fill={false}
+                                        alt='bertha foundation logo'
+                                        style={{maxWidth: '50%', height: 'auto'}}
+                                    />
+                                </Grid>
                             </Grid>
                         </Grid>
                     </Grid>
