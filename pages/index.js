@@ -13,7 +13,7 @@ function ItemTransition({children}) {
     const [isInView, setIsInView] = useState(false);
     const {ref, inView} = useInView({
         triggerOnce: true,
-        threshold: 0.2,
+        threshold: 0,
     });
 
     useEffect(() => {
