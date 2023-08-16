@@ -34,6 +34,7 @@ function ItemTransition({children}) {
 }
 
 export default function Home() {
+    const backgroundImageUrl = 'url("/landing/nyito.jpg")'
 
     return (
 
@@ -48,27 +49,41 @@ export default function Home() {
                 padding='10px'
             >
                 <ItemTransition>
-                    <Grid container spacing={0} alignItems="center" justifyContent="center">
-                        <Grid item>
-                            <Image
-                                src={homeContent.images.opening}
-                                alt='azt beszélik az orczyn felirat egy térképrészletre írva'
-                                priority={true}
-                                style={{maxWidth: '100%', height: 'auto'}}
+                    <Grid
+                        container
+                        spacing={0}
+                        alignItems="center"
+                        justifyContent="center"
+                        style={{
+                            backgroundImage: backgroundImageUrl,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            width: '100%',
+                            height: '100vh', // You can adjust the height as needed
+                        }}
+                    >
+                        {/*<Grid item>*/}
+                        {/*    <Image*/}
+                        {/*        src={homeContent.images.opening}*/}
+                        {/*        alt='azt beszélik az orczyn felirat egy térképrészletre írva'*/}
+                        {/*        priority={true}*/}
+                        {/*        style={{maxWidth: '100%', height: 'auto'}}*/}
 
-                            />
-                        </Grid>
-                        <Grid item style={{position: 'absolute', top: 200}} sx={{display: {xs: 'none', lg: 'flex'}}}>
+                        {/*    />*/}
+                        {/*</Grid>*/}
+                        <Grid item sx={{display: {xs: 'none', lg: 'flex'}}}>
                             <Image
                                 src={homeContent.images.theySay}
                                 alt=''
+                                priority={true}
                                 style={{maxWidth: '100%', height: 'auto', paddingLeft: '20px'}}
                             />
                         </Grid>
-                        <Grid item style={{position: 'absolute'}} sx={{display: {xs: 'flex', lg: 'none'}}}>
+                        <Grid item sx={{display: {xs: 'flex', lg: 'none'}}}>
                             <Image
                                 src={homeContent.images.theySay}
                                 alt=''
+                                priority={true}
                                 style={{maxWidth: '100%', height: 'auto', paddingLeft: '20px'}}
                             />
                         </Grid>
