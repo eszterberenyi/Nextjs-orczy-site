@@ -26,7 +26,7 @@ export const Footer = () => {
                 </Container>
                 <Box sx={{display: 'flex', justifyContent: 'flex-end'}}>
                     <IconButton
-                        area-label='navigate to facebook page'
+                        area-label='facebook oldalhoz link'
                         sx={{color:"text.primary", justifySelf: 'flex-end'}}
                         href='https://www.facebook.com/profile.php?id=100092211710150'
                         target="_blank"
@@ -35,6 +35,9 @@ export const Footer = () => {
                     </IconButton>
                     <IconButton
                         sx={{color:"text.primary"}}
+                        area-label='instagram oldalhoz link'
+                        href='https://www.instagram.com/orczy_szomszedok/'
+                        target="_blank"
                     >
                         <InstagramIcon/>
                     </IconButton>

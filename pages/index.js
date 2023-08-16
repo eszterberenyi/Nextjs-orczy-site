@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import ButtonBases from "../components/ImageButton";
 import {useInView} from "react-intersection-observer";
 import Grow from "@mui/material/Grow";
+import {CopyText} from "../components/CopyText";
 
 function ItemTransition({children}) {
     const [isInView, setIsInView] = useState(false);
@@ -57,14 +58,14 @@ export default function Home() {
 
                             />
                         </Grid>
-                        <Grid item style={{position: 'absolute', top: 200}} sx={{display: {xs: 'none', md: 'flex'}}}>
+                        <Grid item style={{position: 'absolute', top: 200}} sx={{display: {xs: 'none', lg: 'flex'}}}>
                             <Image
                                 src={homeContent.images.theySay}
                                 alt=''
                                 style={{maxWidth: '100%', height: 'auto', paddingLeft: '20px'}}
                             />
                         </Grid>
-                        <Grid item style={{position: 'absolute'}} sx={{display: {xs: 'flex', md: 'none'}}}>
+                        <Grid item style={{position: 'absolute'}} sx={{display: {xs: 'flex', lg: 'none'}}}>
                             <Image
                                 src={homeContent.images.theySay}
                                 alt=''
@@ -80,7 +81,7 @@ export default function Home() {
                         <Typography variant='h5' fontWeight='bold'>{homeContent.titles.about}</Typography>
                     </Grid>
 
-                    <Grid item container xs={12} md={6}>
+                    <Grid item container xs={12} lg={6}>
 
                         <Grid item>
                             <Image
@@ -94,11 +95,11 @@ export default function Home() {
                         </Grid>
                     </Grid>
 
-                    <Grid item container direction="column" spacing={2} xs={12} md={6}>
+                    <Grid item container direction="column" spacing={6} xs={12} lg={6}>
                         <Grid item>
                             <Typography>{homeContent.aboutUs}</Typography>
                         </Grid>
-                        <Grid item container direction='column'>
+                        <Grid item container direction="column" mt='auto' mb={0}>
                             <Grid item>
                                 <p>This project is funded by:</p>
                             </Grid>
@@ -108,7 +109,7 @@ export default function Home() {
                                         src={homeContent.images.bertha}
                                         fill={false}
                                         alt='bertha foundation logo'
-                                        style={{maxWidth: '50%', height: 'auto'}}
+                                        style={{maxWidth: '25%', height: 'auto'}}
                                     />
                                 </Grid>
                             </Grid>
@@ -130,6 +131,16 @@ export default function Home() {
                 <ItemTransition>
                     <Grid item>
                         <Typography variant='h5' fontWeight='bold'>{homeContent.titles.contact}</Typography>
+                    </Grid>
+                    <Grid item container spacing={1}>
+                        <Grid item>
+                            <Typography>{homeContent.email}</Typography>
+                        </Grid>
+                        <Grid item>
+                            <CopyText
+                                text={homeContent.email}
+                            />
+                        </Grid>
                     </Grid>
                 </ItemTransition>
 

@@ -1,7 +1,7 @@
 import openingImg from '../public/landing/nyito.jpg'
 import combinedImg from '../public/landing/combined.jpg'
 import aboutUsImg from '../public/landing/bemutatkozo.jpg'
-import berthaLogo from '../public/landing/Copy of grey-on-white_web.jpg'
+import berthaLogo from '../public/landing/bertha_logo_BLACKonWHITE-01.svg'
 import theySayImg from '../public/landing/azt_beszelik.svg'
 
 export const homeContent = {
@@ -17,5 +17,6 @@ export const homeContent = {
         bertha: berthaLogo,
         theySay: theySayImg,
         combined: combinedImg
-    }
+    },
+    email: 'orczy.szomszedsagi@gmail.com'
 }
