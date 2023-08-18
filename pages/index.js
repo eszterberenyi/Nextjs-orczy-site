@@ -59,7 +59,7 @@ export default function Home() {
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
                             width: '100%',
-                            height: '100vh', // You can adjust the height as needed
+                            height: '100vh',
                         }}
                     >
                         {/*<Grid item>*/}
@@ -123,6 +123,7 @@ export default function Home() {
                                     <Image
                                         src={homeContent.images.bertha}
                                         fill={false}
+                                        placeholder="empty"
                                         alt='bertha foundation logo'
                                         style={{maxWidth: '25%', height: 'auto'}}
                                     />
