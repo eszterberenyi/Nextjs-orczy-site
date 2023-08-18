@@ -3,30 +3,31 @@ import { styled } from '@mui/material/styles';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
 import {Grid} from "@mui/material";
+import Link from "next/link";
 
 const images = [
     {
-        url: 'https://hips.hearstapps.com/hmg-prod/images/happy-dog-outdoors-royalty-free-image-1652927740.jpg?crop=0.447xw:1.00xh;0.187xw,0&resize=980:*',
-        title: 'Térképek',
+        url: '/landing/buttonImages/aktualis_placeholder.jpg',
+        title: 'Kiállítás',
         width: '100%',
+        link: '/exhibition',
+        target: '_self'
     },
     {
-        url: 'https://hips.hearstapps.com/hmg-prod/images/happy-dog-outdoors-royalty-free-image-1652927740.jpg?crop=0.447xw:1.00xh;0.187xw,0&resize=980:*',
-        title: 'Lakógyűlések',
+        url: '/landing/buttonImages/aktualis_placeholder.jpg',
+        title: 'Megnyitó',
         width: '100%',
+        link: 'https://www.facebook.com/profile.php?id=100092211710150',
+        target: '_blank'
     },
-    {
-        url: 'https://hips.hearstapps.com/hmg-prod/images/happy-dog-outdoors-royalty-free-image-1652927740.jpg?crop=0.447xw:1.00xh;0.187xw,0&resize=980:*',
-        title: 'Makettépítés',
-        width: '100%',
-    },
+
 ];
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
     position: 'relative',
     height: 200,
     [theme.breakpoints.down('sm')]: {
-        width: '100% !important', // Overrides inline-style
+        width: '100% !important',
         height: 100,
     },
     '&:hover, &.Mui-focusVisible': {
@@ -35,9 +36,6 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
             opacity: 0.7,
             backgroundColor: '#FDC623',
         },
-        // '& .MuiImageMarked-root': {
-        //     opacity: 1,
-        // },
         '& .MuiTypography-root': {
             border: '4px solid rgba(0, 0, 0, 0.87)',
             color: 'rgba(0, 0, 0, 0.87)'
@@ -78,21 +76,11 @@ const ImageBackdrop = styled('span')(({ theme }) => ({
     transition: theme.transitions.create('opacity'),
 }));
 
-// const ImageMarked = styled('span')(({ theme }) => ({
-//     height: 3,
-//     width: 18,
-//     backgroundColor: 'theme.palette.primary.main',
-//     position: 'absolute',
-//     bottom: -2,
-//     left: 'calc(50% - 9px)',
-//     transition: theme.transitions.create('opacity'),
-// }));
-
 export default function ButtonBases() {
     return (
         <Grid item container spacing={2}>
             {images.map((image) => (
-                <Grid item xs={12} md={4} key={image.title}>
+                <Grid item xs={12} md={6} key={image.title}>
                     <ImageButton
                         focusRipple
                         key={image.title}
@@ -102,23 +90,24 @@ export default function ButtonBases() {
                     >
                         <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
                         <ImageBackdrop className="MuiImageBackdrop-root" />
-                        <Image>
-                            <Typography
-                                component="span"
-                                variant="subtitle1"
-                                color="inherit"
-                                fontWeight='bold'
-                                sx={{
-                                    position: 'relative',
-                                    p: 4,
-                                    pt: 2,
-                                    pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-                                }}
-                            >
-                                {image.title}
-                                {/*<ImageMarked className="MuiImageMarked-root" />*/}
-                            </Typography>
-                        </Image>
+                        <Link href={image.link} passHref target={image.target}>
+                            <Image>
+                                <Typography
+                                    component="span"
+                                    variant="subtitle1"
+                                    color="inherit"
+                                    fontWeight='bold'
+                                    sx={{
+                                        position: 'relative',
+                                        p: 4,
+                                        pt: 2,
+                                        pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
+                                    }}
+                                >
+                                    {image.title}
+                                </Typography>
+                            </Image>
+                        </Link>
                     </ImageButton>
                 </Grid>
             ))}
