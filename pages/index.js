@@ -1,37 +1,12 @@
 import Layout from "@/components/Layout";
-import React, {useEffect, useState} from "react";
 import Grid from "@mui/material/Grid";
 import Image from "next/image";
 import {homeContent} from "../utils/pageContents"
 import Typography from "@mui/material/Typography";
 import ButtonBases from "../components/ImageButton";
-import {useInView} from "react-intersection-observer";
-import Grow from "@mui/material/Grow";
 import {CopyText} from "../components/CopyText";
+import {ItemTransition} from "../components/ItemTransition";
 
-function ItemTransition({children}) {
-    const [isInView, setIsInView] = useState(false);
-    const {ref, inView} = useInView({
-        triggerOnce: true,
-        threshold: 0,
-    });
-
-    useEffect(() => {
-        setIsInView(inView);
-    }, [inView]);
-
-    return (
-        <Grow in={isInView}
-              ref={ref}
-              timeout={1000}
-              easing='cubic-bezier(0.4, 0, 0.2, 1)'
-        >
-            <Grid item container ref={ref} spacing={2}>
-                {children}
-            </Grid>
-        </Grow>
-    )
-}
 
 export default function Home() {
     const backgroundImageUrl = 'url("/landing/nyito.jpg")'
