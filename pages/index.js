@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import ButtonBases from "../components/ImageButton";
 import {CopyText} from "../components/CopyText";
 import {ItemTransition} from "../components/ItemTransition";
+import React from "react";
 
 
 export default function Home() {
@@ -21,7 +22,7 @@ export default function Home() {
                 spacing={3}
                 alignItems="center"
                 justifyContent="center"
-                padding='10px'
+                // padding='10px'
             >
                 <ItemTransition>
                     <Grid
@@ -65,76 +66,76 @@ export default function Home() {
                     </Grid>
                 </ItemTransition>
 
-
-                <ItemTransition>
-                    <Grid item container>
-                        <Typography variant='h5' fontWeight='bold'>{homeContent.titles.about}</Typography>
-                    </Grid>
-
-                    <Grid item container xs={12} lg={6}>
-
-                        <Grid item>
-                            <Image
-                                src={homeContent.images.aboutUs}
-                                alt='kép a projekttagokról'
-                                priority={true}
-                                style={{maxWidth: '100%', height: 'auto'}}
-                            >
-
-                            </Image>
+                <Grid container margin={3} spacing={3}>
+                    <ItemTransition>
+                        <Grid item container>
+                            <Typography variant='h5' fontWeight='bold'>{homeContent.titles.about}</Typography>
                         </Grid>
-                    </Grid>
 
-                    <Grid item container direction="column" spacing={6} xs={12} lg={6}>
-                        <Grid item>
-                            <Typography>{homeContent.aboutUs}</Typography>
-                        </Grid>
-                        <Grid item container direction="column" mt='auto' mb={0}>
+                        <Grid item container xs={12} lg={6}>
+
                             <Grid item>
-                                <p>This project is funded by:</p>
+                                <Image
+                                    src={homeContent.images.aboutUs}
+                                    alt='kép a projekttagokról'
+                                    priority={true}
+                                    style={{maxWidth: '100%', height: 'auto'}}
+                                >
+
+                                </Image>
                             </Grid>
+                        </Grid>
+
+                        <Grid item container direction="column" spacing={6} xs={12} lg={6}>
                             <Grid item>
+                                <Typography>{homeContent.aboutUs}</Typography>
+                            </Grid>
+                            <Grid item container direction="column" mt='auto' mb={0}>
                                 <Grid item>
-                                    <Image
-                                        src={homeContent.images.bertha}
-                                        fill={false}
-                                        placeholder="empty"
-                                        alt='bertha foundation logo'
-                                        style={{maxWidth: '25%', height: 'auto'}}
-                                    />
+                                    <p>This project is funded by:</p>
+                                </Grid>
+                                <Grid item>
+                                    <Grid item>
+                                        <Image
+                                            src={homeContent.images.bertha}
+                                            fill={false}
+                                            placeholder="empty"
+                                            alt='bertha foundation logo'
+                                            style={{maxWidth: '25%', height: 'auto'}}
+                                        />
+                                    </Grid>
                                 </Grid>
                             </Grid>
                         </Grid>
-                    </Grid>
-                </ItemTransition>
+                    </ItemTransition>
 
-                <ItemTransition>
-                    <Grid item container>
-                        <Grid item>
-                            <Typography variant='h5' fontWeight='bold'>{homeContent.titles.current}</Typography>
+                    <ItemTransition>
+                        <Grid item container>
+                            <Grid item>
+                                <Typography variant='h5' fontWeight='bold'>{homeContent.titles.current}</Typography>
+                            </Grid>
                         </Grid>
-                    </Grid>
-                    <Grid item container spacing={2}>
-                        <ButtonBases/>
-                    </Grid>
-                </ItemTransition>
+                        <Grid item container spacing={2}>
+                            <ButtonBases/>
+                        </Grid>
+                    </ItemTransition>
 
-                <ItemTransition>
-                    <Grid item>
-                        <Typography variant='h5' fontWeight='bold'>{homeContent.titles.contact}</Typography>
-                    </Grid>
-                    <Grid item container spacing={1}>
+                    <ItemTransition>
                         <Grid item>
-                            <Typography>{homeContent.email}</Typography>
+                            <Typography variant='h5' fontWeight='bold'>{homeContent.titles.contact}</Typography>
                         </Grid>
-                        <Grid item>
-                            <CopyText
-                                text={homeContent.email}
-                            />
+                        <Grid item container spacing={1}>
+                            <Grid item>
+                                <Typography>{homeContent.email}</Typography>
+                            </Grid>
+                            <Grid item>
+                                <CopyText
+                                    text={homeContent.email}
+                                />
+                            </Grid>
                         </Grid>
-                    </Grid>
-                </ItemTransition>
-
+                    </ItemTransition>
+                </Grid>
             </Grid>
 
         </Layout>
