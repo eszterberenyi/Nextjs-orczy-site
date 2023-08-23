@@ -117,24 +117,14 @@ import IconButton from "@mui/material/IconButton";
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import Dialog from '@mui/material/Dialog';
 import {aboutContent} from '../utils/pageContents';
+import DialogContent from "@mui/material/DialogContent";
 
-// const photos = [
-//     {
-//         src: "/cat.jpg",
-//     },
-//     {
-//         src: "/cat.jpg",
-//     },
-//     {
-//         src: "/cat.jpg",
-//     },
-// ];
 
 const Gallery = ({ photos, onClick }) => {
     return (
-        <Grid container margin={3}>
+        <Grid container margin={3} spacing={3} direction='column' sx={{display: {xs: 'flex', md: 'none'}}}>
             {photos.map((photo, index) => (
-                <Grid item key={index}>
+                <Grid item key={index} xs={12}>
                     <Image
                         key={index}
                         src={photo.src}
@@ -145,6 +135,7 @@ const Gallery = ({ photos, onClick }) => {
                 </Grid>
             ))}
         </Grid>
+
     );
 };
 
@@ -159,66 +150,137 @@ const Lightbox = ({
 
     const image = images[currentImage];
 
+    const [scale, setScale] = useState(1);
+    const [position, setPosition] = useState({ x: 0, y: 0 });
+    const [startDistance, setStartDistance] = useState(0);
+
+    const handleTouchStart = (event) => {
+        if (event.touches.length === 2) {
+            const touch1 = event.touches[0];
+            const touch2 = event.touches[1];
+            const distance = Math.sqrt(
+                (touch2.pageX - touch1.pageX) ** 2 + (touch2.pageY - touch1.pageY) ** 2
+            );
+            setStartDistance(distance);
+        }
+    };
+
+    const handleTouchMove = (event) => {
+        event.preventDefault();
+
+        if (event.touches.length === 2) {
+            const touch1 = event.touches[0];
+            const touch2 = event.touches[1];
+            const distance = Math.sqrt(
+                (touch2.pageX - touch1.pageX) ** 2 + (touch2.pageY - touch1.pageY) ** 2
+            );
+
+            const newScale = (distance / startDistance) * scale;
+            setScale(newScale);
+
+            setPosition({
+                x: (position.x + touch2.clientX - touch1.clientX) / 2,
+                y: (position.y + touch2.clientY - touch1.clientY) / 2,
+            });
+        }
+    };
+
+    const handleClose = () => {
+        setScale(1);
+        setPosition({ x: 0, y: 0 });
+        onClose();
+    };
+
+    const transformStyle = {
+        transform: `scale(${scale}) translate(${position.x}px, ${position.y}px)`,
+        transformOrigin: 'center center',
+    };
+
     return (
         <Dialog
-            onClose={onClose}
+            onClose={handleClose}
             open={isOpen}
-            // fullScreen
-            onBackdropClick={onClose}
+            onBackdropClick={handleClose}
+            fullScreen
             PaperProps={{
                 sx: {
-                    padding: '10px'
-                }
+                    // padding: '10px',
+                },
             }}
         >
-            <Grid
-                container
-                direction='column'
-                spacing={3}
-                >
-                {/*<DialogContent dividers>*/}
-                <Grid
-                    container
-                    item
-                    alignItems="right"
-                    justifyContent="right"
-                >
-                    <IconButton onClick={onClose}>
-                        <CloseOutlinedIcon fontSize='large'/>
-                    </IconButton>
-                </Grid>
-                {/*</DialogContent>*/}
+            <DialogContent
+                sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    height: '100%',
+                    padding: '0',
+                }}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+            >
                 <Grid
                     item
                     container
-                    // spacing={2}
+                    xs={12}
                     alignItems="center"
                     justifyContent="center"
                 >
-                    <Grid item xs={12}>
-                        <Image
-                            src={image.src}
-                            alt={`Lightbox ${currentImage}`}
-                            style={{maxWidth: '100%', height: 'auto'}}
-                        />
-                    </Grid>
-                    <Grid item xs={6}>
-                        {currentImage !== 0 &&
-                        <IconButton onClick={onClickPrev}>
-                            <ArrowBackIosOutlinedIcon fontSize='large'/>
+                    <Image
+                        src={image.src}
+                        alt={`Lightbox ${currentImage}`}
+                        style={{
+                            ...transformStyle,
+                            maxWidth: '100%',
+                            maxHeight: '100vh',
+                            width: 'auto',
+                            height: 'auto',
+                            touchAction: 'manipulation', // Improve touch responsiveness
+                        }}
+                    />
+                    <IconButton
+                        onClick={onClose}
+                        sx={{
+                            position: 'absolute',
+                            top: 0,
+                            right: 0,
+                            zIndex: 1, // Ensure the icon is above the image
+                        }}
+                    >
+                        <CloseOutlinedIcon fontSize='large' sx={{color: 'rgba(0, 0, 0, 0.87)'}}/>
+                    </IconButton>
+                    {currentImage !== 0 &&
+                        <IconButton
+                            onClick={onClickPrev}
+                            sx={{
+                                position: 'absolute',
+                                top: '50%',
+                                left: 0,
+                                transform: 'translateY(-50%)', // Center vertically
+                                zIndex: 1, // Ensure the icon is above the image
+                            }}
+                        >
+                            <ArrowBackIosOutlinedIcon fontSize='large' sx={{color: 'rgba(0, 0, 0, 0.87)'}}/>
                         </IconButton>
-                        }
-                    </Grid>
-                    <Grid item xs={6} container
-                          justifyContent="flex-end">
-                        {currentImage !== images.length - 1 &&
-                        <IconButton onClick={onClickNext}>
-                            <ArrowForwardIosOutlinedIcon fontSize='large'/>
+                    }
+                    {currentImage !== images.length - 1 &&
+                        <IconButton
+                            onClick={onClickNext}
+                            sx={{
+                                position: 'absolute',
+                                top: '50%',
+                                right: 0,
+                                transform: 'translateY(-50%)', // Center vertically
+                                zIndex: 1, // Ensure the icon is above the image
+                            }}
+                        >
+                            <ArrowForwardIosOutlinedIcon fontSize='large' sx={{color: 'rgba(0, 0, 0, 0.87)'}}/>
                         </IconButton>
-                        }
-                    </Grid>
+                    }
                 </Grid>
-            </Grid>
+
+            </DialogContent>
+
         </Dialog>
     );
 };

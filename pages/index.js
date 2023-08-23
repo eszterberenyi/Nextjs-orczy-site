@@ -22,7 +22,6 @@ export default function Home() {
                 spacing={3}
                 alignItems="center"
                 justifyContent="center"
-                // padding='10px'
             >
                 <ItemTransition>
                     <Grid
@@ -38,15 +37,6 @@ export default function Home() {
                             height: '100vh',
                         }}
                     >
-                        {/*<Grid item>*/}
-                        {/*    <Image*/}
-                        {/*        src={homeContent.images.opening}*/}
-                        {/*        alt='azt beszélik az orczyn felirat egy térképrészletre írva'*/}
-                        {/*        priority={true}*/}
-                        {/*        style={{maxWidth: '100%', height: 'auto'}}*/}
-
-                        {/*    />*/}
-                        {/*</Grid>*/}
                         <Grid item sx={{display: {xs: 'none', lg: 'flex'}}}>
                             <Image
                                 src={homeContent.images.theySay}
