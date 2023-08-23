@@ -150,62 +150,16 @@ const Lightbox = ({
 
     const image = images[currentImage];
 
-    const [scale, setScale] = useState(1);
-    const [position, setPosition] = useState({ x: 0, y: 0 });
-    const [startDistance, setStartDistance] = useState(0);
-
-    const handleTouchStart = (event) => {
-        if (event.touches.length === 2) {
-            const touch1 = event.touches[0];
-            const touch2 = event.touches[1];
-            const distance = Math.sqrt(
-                (touch2.pageX - touch1.pageX) ** 2 + (touch2.pageY - touch1.pageY) ** 2
-            );
-            setStartDistance(distance);
-        }
-    };
-
-    const handleTouchMove = (event) => {
-        event.preventDefault();
-
-        if (event.touches.length === 2) {
-            const touch1 = event.touches[0];
-            const touch2 = event.touches[1];
-            const distance = Math.sqrt(
-                (touch2.pageX - touch1.pageX) ** 2 + (touch2.pageY - touch1.pageY) ** 2
-            );
-
-            const newScale = (distance / startDistance) * scale;
-            setScale(newScale);
-
-            setPosition({
-                x: (position.x + touch2.clientX - touch1.clientX) / 2,
-                y: (position.y + touch2.clientY - touch1.clientY) / 2,
-            });
-        }
-    };
-
-    const handleClose = () => {
-        setScale(1);
-        setPosition({ x: 0, y: 0 });
-        onClose();
-    };
-
-    const transformStyle = {
-        transform: `scale(${scale}) translate(${position.x}px, ${position.y}px)`,
-        transformOrigin: 'center center',
-    };
-
     return (
         <Dialog
-            onClose={handleClose}
+            onClose={onClose}
             open={isOpen}
-            onBackdropClick={handleClose}
+            onBackdropClick={onClose}
             fullScreen
             PaperProps={{
                 sx: {
                     // padding: '10px',
-                },
+                }
             }}
         >
             <DialogContent
@@ -214,28 +168,24 @@ const Lightbox = ({
                     alignItems: 'center',
                     justifyContent: 'center',
                     height: '100%',
-                    padding: '0',
+                    padding: '0'
                 }}
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
             >
+
                 <Grid
-                    item
-                    container
+                    item container
                     xs={12}
                     alignItems="center"
-                    justifyContent="center"
-                >
+                    justifyContent="center">
                     <Image
                         src={image.src}
                         alt={`Lightbox ${currentImage}`}
                         style={{
-                            ...transformStyle,
                             maxWidth: '100%',
-                            maxHeight: '100vh',
-                            width: 'auto',
-                            height: 'auto',
-                            touchAction: 'manipulation', // Improve touch responsiveness
+                            maxHeight: '100vh', // Set maximum height to viewport height
+                            width: 'auto', // Maintain aspect ratio
+                            height: 'auto', // Maintain aspect ratio}}
+                            objectFit: 'contain'
                         }}
                     />
                     <IconButton
