@@ -116,13 +116,12 @@ import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutl
 import IconButton from "@mui/material/IconButton";
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import Dialog from '@mui/material/Dialog';
-import {aboutContent} from '../utils/pageContents';
 import DialogContent from "@mui/material/DialogContent";
 
 
 const Gallery = ({ photos, onClick }) => {
     return (
-        <Grid container margin={3} spacing={3} direction='column' sx={{display: {xs: 'flex', md: 'none'}}}>
+        <>
             {photos.map((photo, index) => (
                 <Grid item key={index} xs={12}>
                     <Image
@@ -134,7 +133,7 @@ const Gallery = ({ photos, onClick }) => {
                     />
                 </Grid>
             ))}
-        </Grid>
+        </>
 
     );
 };
@@ -235,7 +234,7 @@ const Lightbox = ({
     );
 };
 
-export const ImageGallery = () => {
+export const ImageGallery = ({images}) => {
     const [currentImage, setCurrentImage] = useState(0);
     const [lightboxIsOpen, setLightboxIsOpen] = useState(false);
 
@@ -259,9 +258,9 @@ export const ImageGallery = () => {
 
     return (
         <>
-            <Gallery photos={aboutContent.images} onClick={openLightbox} />
+            <Gallery photos={images} onClick={openLightbox} />
             <Lightbox
-                images={aboutContent.images}
+                images={images}
                 onClose={closeLightbox}
                 onClickPrev={gotoPrevious}
                 onClickNext={gotoNext}

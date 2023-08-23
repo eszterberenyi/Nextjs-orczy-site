@@ -40,6 +40,10 @@ export const enContent = {
 }
 
 export const aboutContent = {
+    titles: {
+        about: 'RÓLUNK',
+        history: 'HELYTÖRTÉNETI KUTATÁS'
+    },
     images: [
         {
             src: openingImg,
@@ -51,4 +55,9 @@ export const aboutContent = {
             src: aboutUsImg,
         },
     ],
+    historyImages: [
+        {
+            src: placeholder,
+        }
+    ]
 }
