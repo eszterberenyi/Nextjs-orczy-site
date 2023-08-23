@@ -54,7 +54,7 @@ export default function MobileAppBar({menuItems, appBarHeight}) {
                         aria-controls="menu-appbar"
                         aria-haspopup="true"
                         onClick={() => setIsDrawerOpen(!isDrawerOpen)}
-                        sx={{display: {xs: 'flex', md: 'none'}, justifyContent: 'flex-end'}}
+                        sx={{display: {xs: 'flex', md: 'none'}}}
                     >
                         {isDrawerOpen ?
                             <CloseOutlinedIcon fontSize='large'/>

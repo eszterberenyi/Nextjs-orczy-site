@@ -38,3 +38,17 @@ export const enContent = {
         neighborhood: '',
     }
 }
+
+export const aboutContent = {
+    images: [
+        {
+            src: openingImg,
+        },
+        {
+            src: aboutUsImg,
+        },
+        {
+            src: aboutUsImg,
+        },
+    ],
+}

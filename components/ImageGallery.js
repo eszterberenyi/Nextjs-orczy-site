@@ -115,18 +115,20 @@ import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import IconButton from "@mui/material/IconButton";
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import Dialog from '@mui/material/Dialog';
+import {aboutContent} from '../utils/pageContents';
 
-const photos = [
-    {
-        src: "/cat.jpg",
-    },
-    {
-        src: "/cat.jpg",
-    },
-    {
-        src: "/cat.jpg",
-    },
-];
+// const photos = [
+//     {
+//         src: "/cat.jpg",
+//     },
+//     {
+//         src: "/cat.jpg",
+//     },
+//     {
+//         src: "/cat.jpg",
+//     },
+// ];
 
 const Gallery = ({ photos, onClick }) => {
     return (
@@ -138,8 +140,7 @@ const Gallery = ({ photos, onClick }) => {
                         src={photo.src}
                         alt={`Photo ${index}`}
                         onClick={(event) => onClick(event, { index })}
-                        width={100}
-                        height={200}
+                        style={{maxWidth: '100%', height: 'auto'}}
                     />
                 </Grid>
             ))}
@@ -148,39 +149,77 @@ const Gallery = ({ photos, onClick }) => {
 };
 
 const Lightbox = ({
-                      images,
-                      onClose,
-                      onClickPrev,
-                      onClickNext,
-                      currentImage,
-                      isOpen,
+                    images,
+                    onClose,
+                    onClickPrev,
+                    onClickNext,
+                    currentImage,
+                    isOpen
                   }) => {
-    if (!isOpen) {
-        return null;
-    }
 
     const image = images[currentImage];
 
     return (
-        <div className="lightbox">
-            <IconButton onClick={onClose}>
-                <CloseOutlinedIcon/>
-            </IconButton>
-            <div className="image-container">
-                <Image src={image.src} alt={`Lightbox ${currentImage}`} width={100} height={200}/>
-            </div>
-            {currentImage !== 0 &&
-                <IconButton onClick={onClickPrev}>
-                    <ArrowBackIosOutlinedIcon/>
-                </IconButton>
-            }
-            {currentImage !== images.length - 1 &&
-                <IconButton onClick={onClickNext}>
-                    <ArrowForwardIosOutlinedIcon/>
-                </IconButton>
-            }
-
-        </div>
+        <Dialog
+            onClose={onClose}
+            open={isOpen}
+            // fullScreen
+            onBackdropClick={onClose}
+            PaperProps={{
+                sx: {
+                    padding: '10px'
+                }
+            }}
+        >
+            <Grid
+                container
+                direction='column'
+                spacing={3}
+                >
+                {/*<DialogContent dividers>*/}
+                <Grid
+                    container
+                    item
+                    alignItems="right"
+                    justifyContent="right"
+                >
+                    <IconButton onClick={onClose}>
+                        <CloseOutlinedIcon fontSize='large'/>
+                    </IconButton>
+                </Grid>
+                {/*</DialogContent>*/}
+                <Grid
+                    item
+                    container
+                    // spacing={2}
+                    alignItems="center"
+                    justifyContent="center"
+                >
+                    <Grid item xs={12}>
+                        <Image
+                            src={image.src}
+                            alt={`Lightbox ${currentImage}`}
+                            style={{maxWidth: '100%', height: 'auto'}}
+                        />
+                    </Grid>
+                    <Grid item xs={6}>
+                        {currentImage !== 0 &&
+                        <IconButton onClick={onClickPrev}>
+                            <ArrowBackIosOutlinedIcon fontSize='large'/>
+                        </IconButton>
+                        }
+                    </Grid>
+                    <Grid item xs={6} container
+                          justifyContent="flex-end">
+                        {currentImage !== images.length - 1 &&
+                        <IconButton onClick={onClickNext}>
+                            <ArrowForwardIosOutlinedIcon fontSize='large'/>
+                        </IconButton>
+                        }
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Dialog>
     );
 };
 
@@ -207,16 +246,16 @@ export const ImageGallery = () => {
     };
 
     return (
-        <div>
-            <Gallery photos={photos} onClick={openLightbox} />
+        <>
+            <Gallery photos={aboutContent.images} onClick={openLightbox} />
             <Lightbox
-                images={photos}
+                images={aboutContent.images}
                 onClose={closeLightbox}
                 onClickPrev={gotoPrevious}
                 onClickNext={gotoNext}
                 currentImage={currentImage}
                 isOpen={lightboxIsOpen}
             />
-        </div>
+        </>
     );
 };
