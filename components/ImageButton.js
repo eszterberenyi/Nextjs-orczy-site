@@ -17,7 +17,7 @@ const images = [
         url: '/landing/buttonImages/aktualis_placeholder.jpg',
         title: 'Megnyitó',
         width: '100%',
-        link: 'https://www.facebook.com/profile.php?id=100092211710150',
+        link: 'https://www.facebook.com/events/104168436118807',
         target: '_blank'
     },
 
