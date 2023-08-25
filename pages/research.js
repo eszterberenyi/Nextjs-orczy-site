@@ -5,12 +5,12 @@ import Typography from "@mui/material/Typography";
 import ButtonBases from "../components/ImageButton";
 import {workshopsContent} from "../utils/pageContents";
 
-export default function Media() {
+export default function Research() {
     const backgroundImageUrl = 'url("/exhibition/blob4.jpg")'
 
     return (
         <Layout
-            title='Média'
+            title='Kutatás'
         >
             <Grid
                 container
@@ -40,7 +40,7 @@ export default function Media() {
                     >
                         <Grid item sx={{paddingTop: '100px'}}>
                             <Typography variant='h5'>
-                                Itt a projektről készült médiatartalmak lesznek.
+                                Itt a projekt keretében megvalósult helytörténeti kutatásról lesznek tartalmak.
                             </Typography>
                         </Grid>
 
@@ -54,6 +54,6 @@ export default function Media() {
                         </Grid>
                     </Grid>
                 </Grid>
-        </Grid>
-    </Layout>
-)}
+            </Grid>
+        </Layout>
+    )}

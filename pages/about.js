@@ -45,7 +45,7 @@ export default function About() {
 
                             <ItemTransition>
                                 <Grid item container spacing={3} sx={{marginBottom: '40px'}}>
-                                    <Grid item xs={12} md={6}>
+                                    <Grid item >
                                         <Image
                                             src={homeContent.images.aboutUs}
                                             alt='kép a projekttagokról'
@@ -53,9 +53,8 @@ export default function About() {
                                         >
                                         </Image>
                                     </Grid>
-                                    <Grid item xs={12} md={6}>
-                                        <Typography
-                                            style={{whiteSpace: 'pre-line'}}>{aboutContent.aboutUs.description}</Typography>
+                                    <Grid item >
+                                        <Typography style={{whiteSpace: 'pre-line'}}>{aboutContent.aboutUs.description}</Typography>
                                     </Grid>
                                 </Grid>
                             </ItemTransition>
@@ -72,7 +71,7 @@ export default function About() {
                                             <ItemTransition key={index-1}>
                                                 {person.img &&
                                                     <Grid item container spacing={3} key={index}>
-                                                        <Grid item xs={12} md={6} key={index + 1}>
+                                                        <Grid item key={index + 1}>
                                                             <Image
                                                                 src={person.img}
                                                                 alt='kép a projekttagról'
@@ -80,7 +79,7 @@ export default function About() {
                                                             </Image>
 
                                                         </Grid>
-                                                        <Grid item xs={12} md={6} key={index + 2}>
+                                                        <Grid item key={index + 2}>
                                                             <Typography
                                                                 style={{whiteSpace: 'pre-line'}}>{person.text}</Typography>
                                                         </Grid>
@@ -131,13 +130,13 @@ export default function About() {
 
                 <Grid container direction='column' sx={{display: {xs: 'none', md: 'flex'}}}>
 
-                    <ItemTransition>
+                    {/*<ItemTransition>*/}
                         <Grid item>
                             <Typography variant='h5' fontWeight='bold'>{aboutContent.titles.about}</Typography>
                         </Grid>
 
                         <Grid item container spacing={3} sx={{marginBottom: '40px'}}>
-                            <Grid item xs={12} md={6}>
+                            <Grid item lg={6}>
                                 <Image
                                     src={homeContent.images.aboutUs}
                                     alt='kép a projekttagokról'
@@ -145,25 +144,25 @@ export default function About() {
                                 >
                                 </Image>
                             </Grid>
-                            <Grid item container xs={12} md={6}>
+                            <Grid item container lg={6}>
                                 <Typography style={{whiteSpace: 'pre-line'}}>{aboutContent.aboutUs.description}</Typography>
                             </Grid>
                         </Grid>
-                    </ItemTransition>
+                    {/*</ItemTransition>*/}
 
                     <Grid item container spacing={3}>
-                        <ItemTransition>
+                        {/*<ItemTransition>*/}
                             <Grid item>
                                 <Typography variant='h6' fontWeight='bold'>TEAM</Typography>
                             </Grid>
-                        </ItemTransition>
+                        {/*</ItemTransition>*/}
 
                         {aboutContent.aboutUs.team.map((person, index) => (
-                            <ItemTransition key={index-1}>
+                            // <ItemTransition key={index-1}>
                                 <Grid item container spacing={3} key={index}>
                                     {index % 2 === 0 ? (
                                         <>
-                                            <Grid item xs={12} md={6} key={index} sx={{marginBottom: '40px'}}>
+                                            <Grid item md={6} key={index} sx={{marginBottom: '40px'}}>
                                                 {person.img && (
                                                     <Image
                                                         src={person.img}
@@ -172,16 +171,16 @@ export default function About() {
                                                     />
                                                 )}
                                             </Grid>
-                                            <Grid item xs={12} md={6} key={index + 1} sx={{marginBottom: '40px'}}>
+                                            <Grid item md={6} key={index + 1} sx={{marginBottom: '40px'}}>
                                                 <Typography style={{whiteSpace: 'pre-line'}}>{person.text}</Typography>
                                             </Grid>
                                         </>
                                     ) : (
                                         <>
-                                            <Grid item xs={12} md={6} key={index + 1} sx={{marginBottom: '40px'}}>
+                                            <Grid item md={6} key={index + 1} sx={{marginBottom: '40px'}}>
                                                 <Typography style={{whiteSpace: 'pre-line'}}>{person.text}</Typography>
                                             </Grid>
-                                            <Grid item xs={12} md={6} key={index + 2} sx={{marginBottom: '40px'}}>
+                                            <Grid item md={6} key={index + 2} sx={{marginBottom: '40px'}}>
                                                 {person.img && (
                                                     <Image
                                                         src={person.img}
@@ -193,9 +192,9 @@ export default function About() {
                                         </>
                                     )}
                                 </Grid>
-                            </ItemTransition>
+                            // </ItemTransition>
                         ))}
-                        <ItemTransition>
+                        {/*<ItemTransition>*/}
                             <Grid item container>
                                 <Grid item md={12}>
                                     <Typography variant='h6' fontWeight='bold'>{aboutContent.aboutUs.partners.text}</Typography>
@@ -226,7 +225,7 @@ export default function About() {
                                     </Grid>
                                 </Grid>
                             </Grid>
-                        </ItemTransition>
+                        {/*</ItemTransition>*/}
                     </Grid>
                 </Grid>
 
@@ -256,7 +255,7 @@ export default function About() {
                         </AccordionSummary>
                         <AccordionDetails>
                             <Grid container spacing={3}>
-                                <Grid item container xs={12} lg={6}>
+                                <Grid item container>
 
                                     <Grid item>
                                         <Image
@@ -277,12 +276,12 @@ export default function About() {
                 {/*DESKTOP HISTORY CONTENT*/}
 
                 <Grid container direction='column' sx={{display: {xs: 'none', md: 'flex'}}}>
-                    <ItemTransition>
+                    {/*<ItemTransition>*/}
                         <Grid item>
                             <Typography variant='h5' fontWeight='bold'>{aboutContent.titles.history}</Typography>
                         </Grid>
                         <Grid container spacing={3}>
-                            <Grid item container xs={12} lg={6}>
+                            <Grid item container md={6}>
 
                                 <Grid item>
                                     <Image
@@ -294,7 +293,7 @@ export default function About() {
                                 </Grid>
                             </Grid>
                         </Grid>
-                    </ItemTransition>
+                    {/*</ItemTransition>*/}
                 </Grid>
 
                 {/*DESKTOP HISTORY CONTENT END*/}
