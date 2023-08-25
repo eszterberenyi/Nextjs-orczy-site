@@ -6,11 +6,12 @@ import Typography from "@mui/material/Typography";
 import ButtonBases from "../components/ImageButton";
 import {CopyText} from "../components/CopyText";
 import {ItemTransition} from "../components/ItemTransition";
-import React from "react";
-
+import React, from "react";
+import {getWindowWidth} from "../utils/getWindowWidth";
 
 export default function Home() {
     const backgroundImageUrl = 'url("/landing/nyito.jpg")'
+    const {theme, windowWidth} = getWindowWidth();
 
     return (
 
@@ -48,7 +49,7 @@ export default function Home() {
                     </Grid>
                 </ItemTransition>
 
-                <Grid container margin={3} spacing={3}>
+                <Grid container margin={3} spacing={3} sx={{padding: windowWidth >= theme.breakpoints.values.md ? 4 : 1}}>
                     <ItemTransition>
                         <Grid item container>
                             <Typography variant='h5' fontWeight='bold'>{homeContent.titles.about}</Typography>

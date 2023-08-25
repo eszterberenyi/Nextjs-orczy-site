@@ -15,6 +15,7 @@ import matyi from '../public/about/aboutUs/Matyi.jpg'
 import pkLogo from '../public/about/aboutUs/pkk_logo_0.png'
 import jozsefvarosLogo from '../public/about/aboutUs/jozsefvaros_logo.png'
 import eventCover from '../public/exhibition/OSZ_esemeny_cover_23_08_182.jpg'
+import communityFromNeighborhood from '../public/szomszedsagbol_kozosseget.jpg'
 
 export const imagePlaceholder = {
     placeholder: placeholder
@@ -63,7 +64,7 @@ export const enContent = {
     },
     images: {
         aboutUs: aboutUsImg,
-        neighborhood: '',
+        neighborhood: communityFromNeighborhood,
     }
 }
 

@@ -1,33 +1,15 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Layout from "../components/Layout";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import {enContent, imagePlaceholder} from "../utils/pageContents";
+import {enContent} from "../utils/pageContents";
 import Image from "next/image";
 import {ItemTransition} from "../components/ItemTransition";
-import { useTheme } from '@mui/material/styles';
+import {getWindowWidth} from "../utils/getWindowWidth";
 
 
 export default function En() {
-
-    const theme = useTheme();
-    const [windowWidth, setWindowWidth] = useState(0);
-
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            setWindowWidth(window.innerWidth);
-
-            const handleResize = () => {
-                setWindowWidth(window.innerWidth);
-            };
-
-            window.addEventListener('resize', handleResize);
-
-            return () => {
-                window.removeEventListener('resize', handleResize);
-            };
-        }
-    }, []);
+    const {theme, windowWidth} = getWindowWidth();
 
     return (
         <Layout
@@ -70,7 +52,7 @@ export default function En() {
                     <Grid item container xs={12} lg={6}>
                         <Grid item>
                             <Image
-                                src={imagePlaceholder.placeholder}
+                                src={enContent.images.neighborhood}
                                 alt='kép a szomszédsági projektről'
                                 priority={true}
                                 style={{maxWidth: '100%', height: 'auto'}}
