@@ -5,24 +5,6 @@ import Typography from '@mui/material/Typography';
 import {Grid} from "@mui/material";
 import Link from "next/link";
 
-const images = [
-    {
-        url: '/landing/buttonImages/aktualis_placeholder.jpg',
-        title: 'Kiállítás',
-        width: '100%',
-        link: '/exhibition',
-        target: '_self'
-    },
-    {
-        url: '/landing/buttonImages/aktualis_placeholder.jpg',
-        title: 'Megnyitó',
-        width: '100%',
-        link: 'https://www.facebook.com/events/104168436118807',
-        target: '_blank'
-    },
-
-];
-
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
     position: 'relative',
     height: 200,
@@ -76,7 +58,7 @@ const ImageBackdrop = styled('span')(({ theme }) => ({
     transition: theme.transitions.create('opacity'),
 }));
 
-export default function ButtonBases() {
+export default function ButtonBases({images}) {
     return (
         <Grid item container spacing={2}>
             {images.map((image) => (

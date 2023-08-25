@@ -93,7 +93,7 @@ export default function Home() {
                             </Grid>
                         </Grid>
                         <Grid item container spacing={2}>
-                            <ButtonBases/>
+                            <ButtonBases images={homeContent.buttonImages}/>
                         </Grid>
                     </ItemTransition>
 

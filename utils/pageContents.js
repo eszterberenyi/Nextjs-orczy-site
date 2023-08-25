@@ -14,6 +14,7 @@ import siteri from '../public/about/aboutUs/bemutatkozo siteri.jpg'
 import matyi from '../public/about/aboutUs/Matyi.jpg'
 import pkLogo from '../public/about/aboutUs/pkk_logo_0.png'
 import jozsefvarosLogo from '../public/about/aboutUs/jozsefvaros_logo.png'
+import eventCover from '../public/exhibition/OSZ_esemeny_cover_23_08_182.jpg'
 
 export const imagePlaceholder = {
     placeholder: placeholder
@@ -33,7 +34,24 @@ export const homeContent = {
         theySay: theySayImg,
         combined: combinedImg
     },
-    email: 'orczy.szomszedsagi@gmail.com'
+    email: 'orczy.szomszedsagi@gmail.com',
+    buttonImages: [
+        {
+            url: '/landing/buttonImages/aktualis_placeholder.jpg',
+            title: 'Kiállítás',
+            width: '100%',
+            link: '/exhibition',
+            target: '_self'
+        },
+        {
+            url: '/landing/buttonImages/aktualis_placeholder.jpg',
+            title: 'Megnyitó',
+            width: '100%',
+            link: 'https://www.facebook.com/events/104168436118807',
+            target: '_blank'
+        },
+
+    ]
 }
 
 export const enContent = {
@@ -132,4 +150,32 @@ export const aboutContent = {
         },
     },
     aboutResearch: '',
+}
+
+export const exhibitionContent = {
+    img: eventCover,
+}
+
+export const workshopsContent = {
+    buttonImages: [
+        {
+            url: '/landing/buttonImages/aktualis_placeholder.jpg',
+            title: 'Kiállítás',
+            width: '100%',
+            link: '/exhibition',
+            target: '_self'
+        },
+    ]
+}
+
+export const mediaContent = {
+    buttonImages: [
+        {
+            url: '/landing/buttonImages/aktualis_placeholder.jpg',
+            title: 'Kiállítás',
+            width: '100%',
+            link: '/exhibition',
+            target: '_self'
+        },
+    ]
 }
