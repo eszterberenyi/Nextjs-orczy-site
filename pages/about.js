@@ -88,6 +88,7 @@ export default function About() {
                                                 }
                                             </ItemTransition>
                                     ))}
+                            <ItemTransition>
                                 <Grid item container direction='column' >
                                     <Grid item>
                                         <Typography variant='h7'>{aboutContent.aboutUs.partners.text}</Typography>
@@ -116,6 +117,7 @@ export default function About() {
                                         </Grid>
                                     </Grid>
                                 </Grid>
+                            </ItemTransition>
                             </Grid>
                         </AccordionDetails>
                     </Accordion>
@@ -147,13 +149,15 @@ export default function About() {
                         </Grid>
                     </ItemTransition>
 
-                    <ItemTransition>
-                        <Grid item container spacing={3}>
+                    <Grid item container spacing={3}>
+                        <ItemTransition>
                             <Grid item>
                                 <Typography variant='h6' fontWeight='bold'>TEAM</Typography>
                             </Grid>
+                        </ItemTransition>
 
-                            {aboutContent.aboutUs.team.map((person, index) => (
+                        {aboutContent.aboutUs.team.map((person, index) => (
+                            <ItemTransition key={index-1}>
                                 <Grid item container spacing={3} key={index}>
                                     {index % 2 === 0 ? (
                                         <>
@@ -187,13 +191,15 @@ export default function About() {
                                         </>
                                     )}
                                 </Grid>
-                            ))}
+                            </ItemTransition>
+                        ))}
+                        <ItemTransition>
                             <Grid item container>
                                 <Grid item md={12}>
-                                    <Typography variant='h6'>{aboutContent.aboutUs.partners.text}</Typography>
+                                    <Typography variant='h6' fontWeight='bold'>{aboutContent.aboutUs.partners.text}</Typography>
                                 </Grid>
                                 <Grid item container>
-                                    <Grid item container md={6}>
+                                    <Grid item container md={6} alignItems='center'>
                                         <Grid item>
                                             <Image
                                                 src={aboutContent.aboutUs.partners.partnerOne.logo}
@@ -204,7 +210,7 @@ export default function About() {
                                         </Grid>
                                     </Grid>
 
-                                    <Grid item container md={6}>
+                                    <Grid item container md={6} alignItems='center'>
                                         <Grid item>
                                             <Image
                                                 src={aboutContent.aboutUs.partners.partnerTwo.logo}
@@ -216,9 +222,8 @@ export default function About() {
                                     </Grid>
                                 </Grid>
                             </Grid>
-                        </Grid>
-
-                    </ItemTransition>
+                        </ItemTransition>
+                    </Grid>
                 </Grid>
 
                 {/*DESKTOP ABOUT US CONTENT END*/}
