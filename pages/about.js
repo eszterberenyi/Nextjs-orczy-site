@@ -23,6 +23,9 @@ export default function About() {
                 justifyContent="center"
                 padding={2}
             >
+
+                {/*MOBILE ABOUT US CONTENT*/}
+
                 <Grid container direction='column' sx={{display: {xs: 'flex', md: 'none'}}}>
                     <Accordion
                         sx={{
@@ -117,6 +120,10 @@ export default function About() {
                         </AccordionDetails>
                     </Accordion>
                 </Grid>
+
+                {/*MOBILE ABOUT US CONTENT END*/}
+
+                {/*DESKTOP ABOUT US CONTENT*/}
 
                 <Grid container direction='column' sx={{display: {xs: 'none', md: 'flex'}}}>
 
@@ -214,9 +221,13 @@ export default function About() {
                     </ItemTransition>
                 </Grid>
 
+                {/*DESKTOP ABOUT US CONTENT END*/}
+
                 <Grid item xs={12} sx={{display: {xs: 'flex', md: 'none'}}}>
                     <Divider flexItem variant='middle'/>
                 </Grid>
+
+                {/*MOBILE HISTORY CONTENT*/}
 
                 <Grid container direction='column' sx={{display: {xs: 'flex', md: 'none'}}}>
                     <Accordion
@@ -252,6 +263,10 @@ export default function About() {
                     </Accordion>
                 </Grid>
 
+                {/*MOBILE HISTORY CONTENT END*/}
+
+                {/*DESKTOP HISTORY CONTENT*/}
+
                 <Grid container direction='column' sx={{display: {xs: 'none', md: 'flex'}}}>
                     <ItemTransition>
                         <Grid item>
@@ -273,7 +288,7 @@ export default function About() {
                     </ItemTransition>
                 </Grid>
 
-
+                {/*DESKTOP HISTORY CONTENT END*/}
 
             </Grid>
         </Layout>
