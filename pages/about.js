@@ -100,6 +100,7 @@ export default function About() {
                                                     src={aboutContent.aboutUs.partners.partnerOne.logo}
                                                     fill={false}
                                                     style={{maxWidth: '50%', height: 'auto'}}
+                                                    alt='Perféria Központ logó'
                                                 >
                                                 </Image>
                                             </Grid>
@@ -111,6 +112,7 @@ export default function About() {
                                                     src={aboutContent.aboutUs.partners.partnerTwo.logo}
                                                     fill={false}
                                                     style={{maxWidth: '50%', height: 'auto'}}
+                                                    alt='Józsefváros Múzeum logó'
                                                 >
                                                 </Image>
                                             </Grid>
@@ -205,6 +207,7 @@ export default function About() {
                                                 src={aboutContent.aboutUs.partners.partnerOne.logo}
                                                 fill={false}
                                                 style={{maxWidth: '50%', height: 'auto'}}
+                                                alt='Periféria Központ logó'
                                             >
                                             </Image>
                                         </Grid>
@@ -216,6 +219,7 @@ export default function About() {
                                                 src={aboutContent.aboutUs.partners.partnerTwo.logo}
                                                 fill={false}
                                                 style={{maxWidth: '50%', height: 'auto'}}
+                                                alt='Józsefváros Múzeum logó'
                                             >
                                             </Image>
                                         </Grid>
