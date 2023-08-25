@@ -26,6 +26,15 @@ export const mainTheme = createTheme({
     typography: {
         fontFamily: 'Montserrat',
     },
+    breakpoints: {
+        values: {
+            xs: 0,   // Extra small devices
+            sm: 600, // Small devices
+            md: 960, // Medium devices
+            lg: 1280, // Large devices
+            xl: 1920, // Extra large devices
+        },
+    },
     components: {
         MuiMenuItem: {
             styleOverrides: {

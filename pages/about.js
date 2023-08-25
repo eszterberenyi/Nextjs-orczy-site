@@ -21,114 +21,13 @@ export default function About() {
                 container
                 alignItems="center"
                 justifyContent="center"
-                padding={2}
+                padding={6}
+                sx={{display: {xs: 'none', md: 'flex'}}}
             >
-
-                {/*MOBILE ABOUT US CONTENT*/}
-
-                <Grid container direction='column' sx={{display: {xs: 'flex', md: 'none'}}}>
-                    <Accordion
-                        sx={{
-                            boxShadow: 'none',
-                            backgroundColor: 'white',
-                        }}
-                    >
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon/>}
-                        >
-                            <Grid item>
-                                <Typography variant='h5' fontWeight='bold'>{aboutContent.titles.about}</Typography>
-                            </Grid>
-                        </AccordionSummary>
-
-                        <AccordionDetails>
-
-                            <ItemTransition>
-                                <Grid item container spacing={3} sx={{marginBottom: '40px'}}>
-                                    <Grid item >
-                                        <Image
-                                            src={homeContent.images.aboutUs}
-                                            alt='kép a projekttagokról'
-                                            style={{maxWidth: '100%', height: 'auto'}}
-                                        >
-                                        </Image>
-                                    </Grid>
-                                    <Grid item >
-                                        <Typography style={{whiteSpace: 'pre-line'}}>{aboutContent.aboutUs.description}</Typography>
-                                    </Grid>
-                                </Grid>
-                            </ItemTransition>
-
-                            <Grid item container spacing={3}>
-                                <ItemTransition>
-                                    <Grid item>
-                                        <Typography variant='h6' fontWeight='bold'>TEAM</Typography>
-                                    </Grid>
-                                </ItemTransition>
-
-                                    {aboutContent.aboutUs.team.map(
-                                        (person, index) => (
-                                            <ItemTransition key={index-1}>
-                                                {person.img &&
-                                                    <Grid item container spacing={3} key={index}>
-                                                        <Grid item key={index + 1}>
-                                                            <Image
-                                                                src={person.img}
-                                                                alt='kép a projekttagról'
-                                                                style={{maxWidth: '100%', height: 'auto'}}>
-                                                            </Image>
-
-                                                        </Grid>
-                                                        <Grid item key={index + 2}>
-                                                            <Typography
-                                                                style={{whiteSpace: 'pre-line'}}>{person.text}</Typography>
-                                                        </Grid>
-                                                    </Grid>
-                                                }
-                                            </ItemTransition>
-                                    ))}
-                            <ItemTransition>
-                                <Grid item container direction='column' >
-                                    <Grid item>
-                                        <Typography variant='h7'>{aboutContent.aboutUs.partners.text}</Typography>
-                                    </Grid>
-                                    <Grid item container>
-                                        <Grid item container>
-                                            <Grid item>
-                                                <Image
-                                                    src={aboutContent.aboutUs.partners.partnerOne.logo}
-                                                    fill={false}
-                                                    style={{maxWidth: '50%', height: 'auto'}}
-                                                    alt='Perféria Központ logó'
-                                                >
-                                                </Image>
-                                            </Grid>
-                                        </Grid>
-
-                                        <Grid item container>
-                                            <Grid item>
-                                                <Image
-                                                    src={aboutContent.aboutUs.partners.partnerTwo.logo}
-                                                    fill={false}
-                                                    style={{maxWidth: '50%', height: 'auto'}}
-                                                    alt='Józsefváros Múzeum logó'
-                                                >
-                                                </Image>
-                                            </Grid>
-                                        </Grid>
-                                    </Grid>
-                                </Grid>
-                            </ItemTransition>
-                            </Grid>
-                        </AccordionDetails>
-                    </Accordion>
-                </Grid>
-
-                {/*MOBILE ABOUT US CONTENT END*/}
 
                 {/*DESKTOP ABOUT US CONTENT*/}
 
-                <Grid container direction='column' sx={{display: {xs: 'none', md: 'flex'}}}>
+                <Grid container direction='column'>
 
                     {/*<ItemTransition>*/}
                         <Grid item>
@@ -231,13 +130,152 @@ export default function About() {
 
                 {/*DESKTOP ABOUT US CONTENT END*/}
 
-                <Grid item xs={12} sx={{display: {xs: 'flex', md: 'none'}}}>
+
+                {/*DESKTOP HISTORY CONTENT*/}
+
+                <Grid container direction='column' >
+                    {/*<ItemTransition>*/}
+                        <Grid item>
+                            <Typography variant='h5' fontWeight='bold'>{aboutContent.titles.history}</Typography>
+                        </Grid>
+                        <Grid container spacing={3}>
+                            <Grid item container md={6}>
+
+                                <Grid item>
+                                    <Image
+                                        src={imagePlaceholder.placeholder}
+                                        alt='placeholder'
+                                        style={{maxWidth: '100%', height: 'auto'}}
+                                    >
+                                    </Image>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    {/*</ItemTransition>*/}
+                </Grid>
+
+                {/*DESKTOP HISTORY CONTENT END*/}
+
+            </Grid>
+
+
+            <Grid
+                container
+                alignItems="center"
+                justifyContent="center"
+                padding={2}
+                sx={{display: {xs: 'flex', md: 'none'}}}
+            >
+
+                {/*MOBILE ABOUT US CONTENT*/}
+
+                <Grid container direction='column' >
+                    <Accordion
+                        sx={{
+                            boxShadow: 'none',
+                            backgroundColor: 'white',
+                        }}
+                    >
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon/>}
+                        >
+                            <Grid item>
+                                <Typography variant='h5' fontWeight='bold'>{aboutContent.titles.about}</Typography>
+                            </Grid>
+                        </AccordionSummary>
+
+                        <AccordionDetails>
+
+                            <ItemTransition>
+                                <Grid item container spacing={3} sx={{marginBottom: '40px'}}>
+                                    <Grid item >
+                                        <Image
+                                            src={homeContent.images.aboutUs}
+                                            alt='kép a projekttagokról'
+                                            style={{maxWidth: '100%', height: 'auto'}}
+                                        >
+                                        </Image>
+                                    </Grid>
+                                    <Grid item >
+                                        <Typography style={{whiteSpace: 'pre-line'}}>{aboutContent.aboutUs.description}</Typography>
+                                    </Grid>
+                                </Grid>
+                            </ItemTransition>
+
+                            <Grid item container spacing={3}>
+                                <ItemTransition>
+                                    <Grid item>
+                                        <Typography variant='h6' fontWeight='bold'>TEAM</Typography>
+                                    </Grid>
+                                </ItemTransition>
+
+                                {aboutContent.aboutUs.team.map(
+                                    (person, index) => (
+                                        <ItemTransition key={index-1}>
+                                            {person.img &&
+                                            <Grid item container spacing={3} key={index}>
+                                                <Grid item key={index + 1}>
+                                                    <Image
+                                                        src={person.img}
+                                                        alt='kép a projekttagról'
+                                                        style={{maxWidth: '100%', height: 'auto'}}>
+                                                    </Image>
+
+                                                </Grid>
+                                                <Grid item key={index + 2}>
+                                                    <Typography
+                                                        style={{whiteSpace: 'pre-line'}}>{person.text}</Typography>
+                                                </Grid>
+                                            </Grid>
+                                            }
+                                        </ItemTransition>
+                                    ))}
+                                <ItemTransition>
+                                    <Grid item container direction='column' >
+                                        <Grid item>
+                                            <Typography variant='h7'>{aboutContent.aboutUs.partners.text}</Typography>
+                                        </Grid>
+                                        <Grid item container>
+                                            <Grid item container>
+                                                <Grid item>
+                                                    <Image
+                                                        src={aboutContent.aboutUs.partners.partnerOne.logo}
+                                                        fill={false}
+                                                        style={{maxWidth: '50%', height: 'auto'}}
+                                                        alt='Perféria Központ logó'
+                                                    >
+                                                    </Image>
+                                                </Grid>
+                                            </Grid>
+
+                                            <Grid item container>
+                                                <Grid item>
+                                                    <Image
+                                                        src={aboutContent.aboutUs.partners.partnerTwo.logo}
+                                                        fill={false}
+                                                        style={{maxWidth: '50%', height: 'auto'}}
+                                                        alt='Józsefváros Múzeum logó'
+                                                    >
+                                                    </Image>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                </ItemTransition>
+                            </Grid>
+                        </AccordionDetails>
+                    </Accordion>
+                </Grid>
+
+                {/*MOBILE ABOUT US CONTENT END*/}
+
+                <Grid item xs={12}>
                     <Divider flexItem variant='middle'/>
                 </Grid>
 
                 {/*MOBILE HISTORY CONTENT*/}
 
-                <Grid container direction='column' sx={{display: {xs: 'flex', md: 'none'}}}>
+                <Grid container direction='column' >
                     <Accordion
                         sx={{
                             boxShadow: 'none',
@@ -272,31 +310,6 @@ export default function About() {
                 </Grid>
 
                 {/*MOBILE HISTORY CONTENT END*/}
-
-                {/*DESKTOP HISTORY CONTENT*/}
-
-                <Grid container direction='column' sx={{display: {xs: 'none', md: 'flex'}}}>
-                    {/*<ItemTransition>*/}
-                        <Grid item>
-                            <Typography variant='h5' fontWeight='bold'>{aboutContent.titles.history}</Typography>
-                        </Grid>
-                        <Grid container spacing={3}>
-                            <Grid item container md={6}>
-
-                                <Grid item>
-                                    <Image
-                                        src={imagePlaceholder.placeholder}
-                                        alt='placeholder'
-                                        style={{maxWidth: '100%', height: 'auto'}}
-                                    >
-                                    </Image>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    {/*</ItemTransition>*/}
-                </Grid>
-
-                {/*DESKTOP HISTORY CONTENT END*/}
 
             </Grid>
         </Layout>

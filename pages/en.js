@@ -1,12 +1,34 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Layout from "../components/Layout";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import {enContent, imagePlaceholder} from "../utils/pageContents";
 import Image from "next/image";
 import {ItemTransition} from "../components/ItemTransition";
+import { useTheme } from '@mui/material/styles';
+
 
 export default function En() {
+
+    const theme = useTheme();
+    const [windowWidth, setWindowWidth] = useState(0);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setWindowWidth(window.innerWidth);
+
+            const handleResize = () => {
+                setWindowWidth(window.innerWidth);
+            };
+
+            window.addEventListener('resize', handleResize);
+
+            return () => {
+                window.removeEventListener('resize', handleResize);
+            };
+        }
+    }, []);
+
     return (
         <Layout
             title='En'
@@ -16,7 +38,7 @@ export default function En() {
                 spacing={3}
                 alignItems="center"
                 justifyContent="center"
-                padding='10px'
+                sx={{padding: windowWidth >= theme.breakpoints.values.md ? 6 : 3}}
             >
                 <ItemTransition>
                     <Grid item container>
