@@ -5,8 +5,11 @@ import Grid from "@mui/material/Grid";
 import {exhibitionContent} from "../utils/pageContents";
 import Image from "next/image";
 import Box from '@mui/material/Box'
+import {getWindowWidth} from "../utils/getWindowWidth";
 
 export default function Workshops() {
+    const {theme, windowWidth} = getWindowWidth();
+
     return (
         <Layout
             title='Kiállítás'
@@ -26,7 +29,7 @@ export default function Workshops() {
                     >
                     </Image>
                 </Grid>
-                <Grid item container margin={3}>
+                <Grid container margin={3} sx={{padding: windowWidth >= theme.breakpoints.values.md ? 6 : 1}}>
                     <Typography>
                         <Box component="span" fontWeight='bold'>2023. szeptember 3-án</Box> nyílik a
                         <Box component="span" fontWeight='bold'> Dobozi 21</Box>-ben és a Gólyában az
