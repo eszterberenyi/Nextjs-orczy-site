@@ -1,112 +1,3 @@
-// import React, { useState } from 'react';
-// import Lightbox,from 'react-spring-lightbox';
-// import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
-// import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
-// import {Button} from "@mui/material";
-// import IconButton from "@mui/material/IconButton";
-//
-// const images = [
-//     {
-//         src: 'https://timellenberger.com/static/blog-content/dark-mode/win10-dark-mode.jpg',
-//         loading: 'lazy',
-//         alt: 'Windows 10 Dark Mode Setting',
-//     },
-//     {
-//         src: 'https://timellenberger.com/static/blog-content/dark-mode/macos-dark-mode.png',
-//         loading: 'lazy',
-//         alt: 'macOS Mojave Dark Mode Setting',
-//     },
-//     {
-//         src: 'https://timellenberger.com/static/blog-content/dark-mode/android-9-dark-mode.jpg',
-//         loading: 'lazy',
-//         alt: 'Android 9.0 Dark Mode Setting',
-//     },
-// ];
-//
-//
-// export const ImageGallery = () => {
-//     const [isOpen, setOpen] = useState(true);
-//     const [currentImageIndex, setCurrentIndex] = useState(0);
-//
-//     const gotoPrevious = () =>
-//         currentImageIndex > 0 && setCurrentIndex(currentImageIndex - 1);
-//
-//     const gotoNext = () =>
-//         currentImageIndex + 1 < images.length &&
-//         setCurrentIndex(currentImageIndex + 1);
-//
-//     const forwardArrow = ({currentImageIndex}) => {
-//         return (
-//             <>
-//             {currentImageIndex !== images.length - 1 &&
-//                 <IconButton
-//                     onClick={gotoNext}
-//                     sx={{zIndex: 2}}
-//                 >
-//                     <ArrowForwardIosOutlinedIcon />
-//                 </IconButton>
-//             }
-//             </>
-//         )
-//     }
-//
-//     const backArrow = ({currentImageIndex}) => {
-//         console.log(currentImageIndex)
-//         return (
-//             <>
-//                 {currentImageIndex !== 0 &&
-//                 <IconButton
-//                     onClick={gotoPrevious}
-//                     sx={{zIndex: 2}}
-//                 >
-//                     <ArrowBackIosOutlinedIcon />
-//                 </IconButton>
-//                 }
-//             </>
-//         )
-//     }
-//
-//
-//     return (
-//         <Lightbox
-//             isOpen={true}
-//             onPrev={gotoPrevious}
-//             onNext={gotoNext}
-//             images={images}
-//             currentIndex={currentImageIndex}
-//             /* Add your own UI */
-//             // renderHeader={() => (<CustomHeader />)}
-//             // renderFooter={() => (<CustomFooter />)}
-//             renderPrevButton={() => (backArrow(currentImageIndex))}
-//             renderNextButton={() => (forwardArrow(currentImageIndex))}
-//             style={{
-//                 // margin: '50px',
-//                 // opacity: '0.5'
-//             }}
-//             // renderImageOverlay={() => (<ImageOverlayComponent >)}
-//
-//             /* Add styling */
-//             // className="cool-class"
-//             // style={{ background: "grey" }}
-//
-//             /* Handle closing */
-//             // onClose={handleClose}
-//
-//             /* Use single or double click to zoom */
-//             // singleClickToZoom
-//
-//             /* react-spring config for open/close animation */
-//             // pageTransitionConfig={{
-//             //   from: { transform: "scale(0.75)", opacity: 0 },
-//             //   enter: { transform: "scale(1)", opacity: 1 },
-//             //   leave: { transform: "scale(0.75)", opacity: 0 },
-//             //   config: { mass: 1, tension: 320, friction: 32 }
-//             // }}
-//         />
-//     );
-// };
-
-
 import * as React from 'react';
 import {useState} from "react";
 import Image from "next/image";
@@ -117,7 +8,6 @@ import IconButton from "@mui/material/IconButton";
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from "@mui/material/DialogContent";
-
 
 const Gallery = ({ photos, onClick }) => {
     return (
@@ -155,11 +45,6 @@ const Lightbox = ({
             open={isOpen}
             onBackdropClick={onClose}
             fullScreen
-            PaperProps={{
-                sx: {
-                    // padding: '10px',
-                }
-            }}
         >
             <DialogContent
                 sx={{
@@ -181,9 +66,9 @@ const Lightbox = ({
                         alt={`Lightbox ${currentImage}`}
                         style={{
                             maxWidth: '100%',
-                            maxHeight: '100vh', // Set maximum height to viewport height
-                            width: 'auto', // Maintain aspect ratio
-                            height: 'auto', // Maintain aspect ratio}}
+                            maxHeight: '100vh',
+                            width: 'auto',
+                            height: 'auto',
                             objectFit: 'contain'
                         }}
                     />
@@ -193,7 +78,7 @@ const Lightbox = ({
                             position: 'absolute',
                             top: 0,
                             right: 0,
-                            zIndex: 1, // Ensure the icon is above the image
+                            zIndex: 1,
                         }}
                     >
                         <CloseOutlinedIcon fontSize='large' sx={{color: 'rgba(0, 0, 0, 0.87)'}}/>
@@ -205,8 +90,8 @@ const Lightbox = ({
                                 position: 'absolute',
                                 top: '50%',
                                 left: 0,
-                                transform: 'translateY(-50%)', // Center vertically
-                                zIndex: 1, // Ensure the icon is above the image
+                                transform: 'translateY(-50%)',
+                                zIndex: 1,
                             }}
                         >
                             <ArrowBackIosOutlinedIcon fontSize='large' sx={{color: 'rgba(0, 0, 0, 0.87)'}}/>
@@ -219,8 +104,8 @@ const Lightbox = ({
                                 position: 'absolute',
                                 top: '50%',
                                 right: 0,
-                                transform: 'translateY(-50%)', // Center vertically
-                                zIndex: 1, // Ensure the icon is above the image
+                                transform: 'translateY(-50%)',
+                                zIndex: 1,
                             }}
                         >
                             <ArrowForwardIosOutlinedIcon fontSize='large' sx={{color: 'rgba(0, 0, 0, 0.87)'}}/>

@@ -37,15 +37,7 @@ export default function Home() {
                             height: '100vh',
                         }}
                     >
-                        <Grid item sx={{display: {xs: 'none', lg: 'flex'}}}>
-                            <Image
-                                src={homeContent.images.theySay}
-                                alt=''
-                                priority={true}
-                                style={{maxWidth: '100%', height: 'auto', paddingLeft: '20px'}}
-                            />
-                        </Grid>
-                        <Grid item sx={{display: {xs: 'flex', lg: 'none'}}}>
+                        <Grid item>
                             <Image
                                 src={homeContent.images.theySay}
                                 alt=''
@@ -62,9 +54,7 @@ export default function Home() {
                             <Typography variant='h5' fontWeight='bold'>{homeContent.titles.about}</Typography>
                         </Grid>
 
-                        <Grid item container xs={12} lg={6}>
-
-                            <Grid item>
+                        <Grid item xs={12} lg={6}>
                                 <Image
                                     src={homeContent.images.aboutUs}
                                     alt='kép a projekttagokról'
@@ -73,7 +63,6 @@ export default function Home() {
                                 >
 
                                 </Image>
-                            </Grid>
                         </Grid>
 
                         <Grid item container direction="column" spacing={6} xs={12} lg={6}>
@@ -85,15 +74,13 @@ export default function Home() {
                                     <p>This project is funded by:</p>
                                 </Grid>
                                 <Grid item>
-                                    <Grid item>
-                                        <Image
-                                            src={homeContent.images.bertha}
-                                            fill={false}
-                                            placeholder="empty"
-                                            alt='bertha foundation logo'
-                                            style={{maxWidth: '25%', height: 'auto'}}
-                                        />
-                                    </Grid>
+                                    <Image
+                                        src={homeContent.images.bertha}
+                                        fill={false}
+                                        placeholder="empty"
+                                        alt='bertha foundation logo'
+                                        style={{maxWidth: '25%', height: 'auto'}}
+                                    />
                                 </Grid>
                             </Grid>
                         </Grid>
