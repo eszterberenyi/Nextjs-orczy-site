@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import {Grid} from "@mui/material";
 import Link from "next/link";
 
-const ImageButton = styled(ButtonBase)(({ theme }) => ({
+const ImageButtonStyle = styled(ButtonBase)(({ theme }) => ({
     position: 'relative',
     height: 200,
     [theme.breakpoints.down('sm')]: {
@@ -15,7 +15,7 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
     '&:hover, &.Mui-focusVisible': {
         zIndex: 1,
         '& .MuiImageBackdrop-root': {
-            opacity: 0.7,
+            opacity: 1,
             backgroundColor: '#FDC623',
         },
         '& .MuiTypography-root': {
@@ -58,12 +58,12 @@ const ImageBackdrop = styled('span')(({ theme }) => ({
     transition: theme.transitions.create('opacity'),
 }));
 
-export default function ButtonBases({images}) {
+export const ImageButtons = ({images, breakpoints=[12, 6]}) => {
     return (
         <Grid item container spacing={2}>
             {images.map((image) => (
-                <Grid item xs={12} md={6} key={image.title}>
-                    <ImageButton
+                <Grid item xs={breakpoints[0]} md={breakpoints[1]} key={image.title}>
+                    <ImageButtonStyle
                         focusRipple
                         key={image.title}
                         style={{
@@ -90,9 +90,44 @@ export default function ButtonBases({images}) {
                                 </Typography>
                             </Image>
                         </Link>
-                    </ImageButton>
+                    </ImageButtonStyle>
                 </Grid>
             ))}
+        </Grid>
+    );
+}
+
+export const ImageButton = ({image, breakpoints=[12, 6]}) => {
+    return (
+        <Grid item xs={breakpoints[0]} md={breakpoints[1]}>
+            <ImageButtonStyle
+                focusRipple
+                key={image.title}
+                style={{
+                    width: image.width,
+                }}
+            >
+                <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
+                <ImageBackdrop className="MuiImageBackdrop-root" />
+                <Link href={image.link} passHref target={image.target}>
+                    <Image>
+                        <Typography
+                            component="span"
+                            variant="subtitle1"
+                            color="inherit"
+                            fontWeight='bold'
+                            sx={{
+                                position: 'relative',
+                                p: 4,
+                                pt: 2,
+                                pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
+                            }}
+                        >
+                            {image.title}
+                        </Typography>
+                    </Image>
+                </Link>
+            </ImageButtonStyle>
         </Grid>
     );
 }
