@@ -72,7 +72,7 @@ export default function Workshops() {
                         <Box component="span" fontWeight='bold'>
                             Nyitvatartás:
                         </Box> <br/>
-                        szeptember 3-24-ig Cs-Szo 14:00-18:00, az utolsó héten rendhagyó nyitvatartással (kedd, szerda, szombat vasárnap)
+                        Szeptember 3-24-ig Cs-Szo 14:00-18:00, az utolsó héten rendhagyó nyitvatartással (kedd, szerda, szombat vasárnap).
                         <br/>
                         <br/>
                         <Box component="span" fontWeight='bold'>
