@@ -25,6 +25,23 @@ export const mainTheme = createTheme({
     },
     typography: {
         fontFamily: 'Montserrat',
+        h5: {
+            position: 'relative',
+            display: 'inline-block',
+            padding: '10px',
+            zIndex: 1,
+            '&::after': {
+                content: '""',
+                position: 'absolute',
+                bottom: 0,
+                left: 0, // Position it at the start of the element
+                width: '100%', // Cover the full width
+                height: '25px',
+                backgroundColor: '#FDC623',
+                zIndex: -1,
+                marginBottom: '5px'
+            },
+        },
     },
     breakpoints: {
         values: {
