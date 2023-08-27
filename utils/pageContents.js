@@ -18,11 +18,11 @@ import communityFromNeighborhood from '../public/szomszedsagbol_kozosseget.jpg'
 import p1 from '../public/neighborhood/aboutPics/DSC_0072.jpg'
 import p2 from '../public/neighborhood/aboutPics/DSC_0122.jpg'
 import p3 from '../public/neighborhood/aboutPics/DSC_0211.jpg'
-import p4 from '../public/neighborhood/aboutPics/IMG_6409.JPG'
+import p4 from '../public/neighborhood/aboutPics/IMG_6409.jpg'
 import p5 from '../public/neighborhood/aboutPics/IMG_20211114_125756.jpg'
 import p6 from '../public/neighborhood/aboutPics/m.jpg'
 import p7 from '../public/neighborhood/aboutPics/majjalis.jpg'
-import p8 from '../public/neighborhood/aboutPics/P1140610.JPG'
+import p8 from '../public/neighborhood/aboutPics/P1140610.jpg'
 import p9 from '../public/neighborhood/aboutPics/utcazene.jpg'
 
 export const imagePlaceholder = {

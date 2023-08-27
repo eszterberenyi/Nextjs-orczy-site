@@ -7,6 +7,7 @@ import Image from "next/image";
 import {ImageGallery} from "../components/ImageGallery";
 import {ImageButton} from "../components/ImageButton";
 import {getWindowWidth} from "../utils/getWindowWidth";
+import {ItemTransition} from "../components/ItemTransition";
 
 
 export default function Workshops() {
@@ -38,6 +39,8 @@ export default function Workshops() {
                 // sx={{display: {xs: 'flex', md: 'flex'}}}
             >
                 <Grid item container spacing={3} sx={{marginBottom: '40px'}}>
+
+                    <ItemTransition>
                     <Grid item container lg={6} spacing={3} justifyContent="center">
                         <Grid item lg={12}>
                             <Image
@@ -55,9 +58,13 @@ export default function Workshops() {
                             />
                         </Grid>
                     </Grid>
+
                     <Grid item container lg={6}>
                         <Typography style={{whiteSpace: 'pre-line'}}>{neighborhoodContent.mainText}</Typography>
                     </Grid>
+                    </ItemTransition>
+
+                    <ItemTransition>
                     <Grid item>
                         <Typography variant='h5' fontWeight='bold'>{neighborhoodContent.about.title}</Typography>
                     </Grid>
@@ -75,6 +82,7 @@ export default function Workshops() {
                             )
                         })}
                     </Grid>
+                    </ItemTransition>
 
                 </Grid>
 

@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import {ImageButtons} from "../components/ImageButton";
 import {CopyText} from "../components/CopyText";
 import {ItemTransition} from "../components/ItemTransition";
-import React, from "react";
+import React from "react";
 import {getWindowWidth} from "../utils/getWindowWidth";
 
 export default function Home() {

@@ -50,7 +50,7 @@ export const LightBox = ({
                             maxHeight: '100vh',
                             width: 'auto',
                             height: 'auto',
-                            objectFit: 'contain'
+                            objectFit: "contain"
                         }}
                     />
                     <IconButton

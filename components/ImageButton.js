@@ -73,7 +73,7 @@ export const ImageButtons = ({images, breakpoints=[12, 6]}) => {
                         <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
                         <ImageBackdrop className="MuiImageBackdrop-root" />
                         <Link href={image.link} passHref target={image.target}>
-                            <Image>
+                            <Image alt={image.title}>
                                 <Typography
                                     component="span"
                                     variant="subtitle1"
@@ -110,7 +110,7 @@ export const ImageButton = ({image, breakpoints=[12, 6]}) => {
                 <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
                 <ImageBackdrop className="MuiImageBackdrop-root" />
                 <Link href={image.link} passHref target={image.target}>
-                    <Image>
+                    <Image alt={image.title}>
                         <Typography
                             component="span"
                             variant="subtitle1"
