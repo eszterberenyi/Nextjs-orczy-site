@@ -28,6 +28,7 @@ export const CopyText = ({text}) => {
         <>
             <ContentCopyIcon
                 onClick={handleCopyClick}
+                sx={{cursor: 'pointer'}}
             />
             <Snackbar
                 open={open}
