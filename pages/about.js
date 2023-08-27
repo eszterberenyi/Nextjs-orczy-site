@@ -3,12 +3,7 @@ import Layout from "../components/Layout";
 import Grid from "@mui/material/Grid";
 import {ItemTransition} from "../components/ItemTransition";
 import Typography from "@mui/material/Typography";
-import {aboutContent, homeContent, imagePlaceholder} from "../utils/pageContents";
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Divider from '@mui/material/Divider';
+import {aboutContent, homeContent} from "../utils/pageContents";
 import Image from "next/image";
 
 
@@ -27,7 +22,7 @@ export default function About() {
 
                 {/*DESKTOP ABOUT US CONTENT*/}
 
-                <Grid container direction='column'>
+                <Grid container direction='column' spacing={3}>
 
                     {/*<ItemTransition>*/}
                         <Grid item>
@@ -133,26 +128,26 @@ export default function About() {
 
                 {/*DESKTOP HISTORY CONTENT*/}
 
-                <Grid container direction='column' >
-                    {/*<ItemTransition>*/}
-                        <Grid item>
-                            <Typography variant='h5' fontWeight='bold'>{aboutContent.titles.history}</Typography>
-                        </Grid>
-                        <Grid container spacing={3}>
-                            <Grid item container md={6}>
+                {/*<Grid container direction='column' >*/}
+                {/*    /!*<ItemTransition>*!/*/}
+                {/*        <Grid item>*/}
+                {/*            <Typography variant='h5' fontWeight='bold'>{aboutContent.titles.history}</Typography>*/}
+                {/*        </Grid>*/}
+                {/*        <Grid container spacing={3}>*/}
+                {/*            <Grid item container md={6}>*/}
 
-                                <Grid item>
-                                    <Image
-                                        src={imagePlaceholder.placeholder}
-                                        alt='placeholder'
-                                        style={{maxWidth: '100%', height: 'auto'}}
-                                    >
-                                    </Image>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    {/*</ItemTransition>*/}
-                </Grid>
+                {/*                <Grid item>*/}
+                {/*                    <Image*/}
+                {/*                        src={imagePlaceholder.placeholder}*/}
+                {/*                        alt='placeholder'*/}
+                {/*                        style={{maxWidth: '100%', height: 'auto'}}*/}
+                {/*                    >*/}
+                {/*                    </Image>*/}
+                {/*                </Grid>*/}
+                {/*            </Grid>*/}
+                {/*        </Grid>*/}
+                {/*    /!*</ItemTransition>*!/*/}
+                {/*</Grid>*/}
 
                 {/*DESKTOP HISTORY CONTENT END*/}
 
@@ -170,21 +165,21 @@ export default function About() {
                 {/*MOBILE ABOUT US CONTENT*/}
 
                 <Grid container direction='column' >
-                    <Accordion
-                        sx={{
-                            boxShadow: 'none',
-                            backgroundColor: 'white',
-                        }}
-                    >
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon/>}
-                        >
+                    {/*<Accordion*/}
+                    {/*    sx={{*/}
+                    {/*        boxShadow: 'none',*/}
+                    {/*        backgroundColor: 'white',*/}
+                    {/*    }}*/}
+                    {/*>*/}
+                    {/*    <AccordionSummary*/}
+                    {/*        expandIcon={<ExpandMoreIcon/>}*/}
+                    {/*    >*/}
                             <Grid item>
                                 <Typography variant='h5' fontWeight='bold'>{aboutContent.titles.about}</Typography>
                             </Grid>
-                        </AccordionSummary>
+                        {/*</AccordionSummary>*/}
 
-                        <AccordionDetails>
+                        {/*<AccordionDetails>*/}
 
                             <ItemTransition>
                                 <Grid item container spacing={3} sx={{marginBottom: '40px'}}>
@@ -263,51 +258,51 @@ export default function About() {
                                     </Grid>
                                 </ItemTransition>
                             </Grid>
-                        </AccordionDetails>
-                    </Accordion>
+                    {/*    </AccordionDetails>*/}
+                    {/*</Accordion>*/}
                 </Grid>
 
                 {/*MOBILE ABOUT US CONTENT END*/}
 
-                <Grid item xs={12}>
-                    <Divider flexItem variant='middle'/>
-                </Grid>
+                {/*<Grid item xs={12}>*/}
+                {/*    <Divider flexItem variant='middle'/>*/}
+                {/*</Grid>*/}
 
                 {/*MOBILE HISTORY CONTENT*/}
 
-                <Grid container direction='column' >
-                    <Accordion
-                        sx={{
-                            boxShadow: 'none',
-                            backgroundColor: 'white'
-                        }}
-                    >
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon/>}
-                            // aria-controls="panel1a-content"
-                            // id="panel1a-header"
-                        >
-                            <Grid item>
-                                <Typography variant='h5' fontWeight='bold'>{aboutContent.titles.history}</Typography>
-                            </Grid>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <Grid container spacing={3}>
-                                <Grid item container>
+                {/*<Grid container direction='column' >*/}
+                {/*    <Accordion*/}
+                {/*        sx={{*/}
+                {/*            boxShadow: 'none',*/}
+                {/*            backgroundColor: 'white'*/}
+                {/*        }}*/}
+                {/*    >*/}
+                {/*        <AccordionSummary*/}
+                {/*            expandIcon={<ExpandMoreIcon/>}*/}
+                {/*            // aria-controls="panel1a-content"*/}
+                {/*            // id="panel1a-header"*/}
+                {/*        >*/}
+                {/*            <Grid item>*/}
+                {/*                <Typography variant='h5' fontWeight='bold'>{aboutContent.titles.history}</Typography>*/}
+                {/*            </Grid>*/}
+                {/*        </AccordionSummary>*/}
+                {/*        <AccordionDetails>*/}
+                {/*            <Grid container spacing={3}>*/}
+                {/*                <Grid item container>*/}
 
-                                    <Grid item>
-                                        <Image
-                                            src={imagePlaceholder.placeholder}
-                                            alt='placeholder'
-                                            style={{maxWidth: '100%', height: 'auto'}}
-                                        >
-                                        </Image>
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                        </AccordionDetails>
-                    </Accordion>
-                </Grid>
+                {/*                    <Grid item>*/}
+                {/*                        <Image*/}
+                {/*                            src={imagePlaceholder.placeholder}*/}
+                {/*                            alt='placeholder'*/}
+                {/*                            style={{maxWidth: '100%', height: 'auto'}}*/}
+                {/*                        >*/}
+                {/*                        </Image>*/}
+                {/*                    </Grid>*/}
+                {/*                </Grid>*/}
+                {/*            </Grid>*/}
+                {/*        </AccordionDetails>*/}
+                {/*    </Accordion>*/}
+                {/*</Grid>*/}
 
                 {/*MOBILE HISTORY CONTENT END*/}
 
