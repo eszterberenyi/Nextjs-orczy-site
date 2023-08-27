@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid";
 import Image from "next/image";
 import {homeContent} from "../utils/pageContents"
 import Typography from "@mui/material/Typography";
-import ButtonBases from "../components/ImageButton";
+import {ImageButtons} from "../components/ImageButton";
 import {CopyText} from "../components/CopyText";
 import {ItemTransition} from "../components/ItemTransition";
 import React, from "react";
@@ -94,7 +94,7 @@ export default function Home() {
                             </Grid>
                         </Grid>
                         <Grid item container spacing={2}>
-                            <ButtonBases images={homeContent.buttonImages}/>
+                            <ImageButtons images={homeContent.buttonImages}/>
                         </Grid>
                     </ItemTransition>
 
