@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import {workshopsContent} from "../utils/pageContents"
-import ButtonBases from "../components/ImageButton";
+import {ImageButtons} from "../components/ImageButton";
 
 export default function Workshops() {
     const backgroundImageUrl = 'url("/exhibition/blob4.jpg")'
@@ -33,16 +33,21 @@ export default function Workshops() {
                     spacing={5}
                 >
                     <Grid item sx={{paddingTop: '100px'}}>
-                        <Typography variant='h5'>
-                            Itt a projekt keretében megvalósult foglalkozásokról lesznek képek, leírások.
+                        <Typography variant='h6'>
+                            Hamarosan.
                         </Typography>
                     </Grid>
+
                     <Grid item container spacing={1}>
                         <Grid item>
-                            <Typography variant='h5'> Addig is látogass el kiállításunkra: </Typography>
+                            <Typography
+                                variant='h6'
+                            >
+                                Addig is látogass el kiállításunkra:
+                            </Typography>
                         </Grid>
                         <Grid item container>
-                            <ButtonBases images={workshopsContent.buttonImages}/>
+                            <ImageButtons images={workshopsContent.buttonImages}/>
                         </Grid>
                     </Grid>
                 </Grid>

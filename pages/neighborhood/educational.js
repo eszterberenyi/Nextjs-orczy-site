@@ -1,16 +1,16 @@
 import React from "react";
-import Layout from "../components/Layout";
+import Layout from "../../components/Layout";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import {ImageButtons} from "../components/ImageButton";
-import {workshopsContent} from "../utils/pageContents";
+import {ImageButtons} from "../../components/ImageButton";
+import {workshopsContent} from "../../utils/pageContents";
 
-export default function Media() {
+export default function Research() {
     const backgroundImageUrl = 'url("/exhibition/blob4.jpg")'
 
     return (
         <Layout
-            title='Média'
+            title='Edukáció'
         >
             <Grid
                 container
@@ -48,6 +48,7 @@ export default function Media() {
                             <Grid item>
                                 <Typography
                                     variant='h6'
+                                    sx={{backgroundColor: '#FDC623'}}
                                 >
                                     Addig is látogass el kiállításunkra:
                                 </Typography>
@@ -58,6 +59,6 @@ export default function Media() {
                         </Grid>
                     </Grid>
                 </Grid>
-        </Grid>
-    </Layout>
-)}
+            </Grid>
+        </Layout>
+    )}

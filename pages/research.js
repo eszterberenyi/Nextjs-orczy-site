@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import ButtonBases from "../components/ImageButton";
+import {ImageButtons} from "../components/ImageButton";
 import {workshopsContent} from "../utils/pageContents";
 
 export default function Research() {
@@ -39,17 +39,21 @@ export default function Research() {
                         spacing={5}
                     >
                         <Grid item sx={{paddingTop: '100px'}}>
-                            <Typography variant='h5'>
-                                Itt a projekt keretében megvalósult helytörténeti kutatásról lesznek tartalmak.
+                            <Typography variant='h6'>
+                                Hamarosan.
                             </Typography>
                         </Grid>
 
                         <Grid item container spacing={1}>
                             <Grid item>
-                                <Typography variant='h5'> Addig is látogass el kiállításunkra: </Typography>
+                                <Typography
+                                    variant='h6'
+                                >
+                                    Addig is látogass el kiállításunkra:
+                                </Typography>
                             </Grid>
                             <Grid item container>
-                                <ButtonBases images={workshopsContent.buttonImages}/>
+                                <ImageButtons images={workshopsContent.buttonImages}/>
                             </Grid>
                         </Grid>
                     </Grid>
