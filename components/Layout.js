@@ -16,8 +16,8 @@ export default function Layout({children, title}) {
             <Head>
                 {/*<link rel="icon" href="/favicon.ico" />*/}
                 <meta
-                    name="description"
-                    content="Website for the Orczy szomszédsági project"
+                    name="og:description"
+                    content="Az Orczy Szomszédok a Gólya Szövetkezet és a Kazán Közösségi Ház Szomszédsági programjának a ház környezetéről szóló, helytörténeti projektje."
                 />
                 <meta name="og:title" content={title} />
                 <title>{title}</title>
