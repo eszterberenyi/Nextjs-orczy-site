@@ -15,7 +15,7 @@ export default function Home() {
     return (
 
         <Layout
-            title='OSZ'
+            title='Orczy Szomszédok'
         >
             <Grid
                 container
