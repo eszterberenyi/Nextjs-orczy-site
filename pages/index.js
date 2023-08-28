@@ -42,6 +42,7 @@ export default function Home() {
                             style={{objectFit: 'cover'}}
                             quality={100}
                             priority={true}
+                            sizes="(max-width: 600px) 100vw, 50vw"
                         />
                         <Grid
                             item
@@ -60,6 +61,7 @@ export default function Home() {
                                 src={homeContent.images.theySay}
                                 alt=''
                                 style={{maxWidth: '100%', height: 'auto', paddingLeft: '20px'}}
+                                sizes="(max-width: 600px) 100vw, 50vw"
                             />
                         </Grid>
                     </Grid>
@@ -77,6 +79,7 @@ export default function Home() {
                                     alt='kép a projekttagokról'
                                     priority={true}
                                     style={{maxWidth: '100%', height: 'auto'}}
+                                    sizes="(max-width: 600px) 100vw, 50vw"
                                 >
 
                                 </Image>

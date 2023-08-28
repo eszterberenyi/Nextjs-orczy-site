@@ -48,6 +48,7 @@ export default function Workshops() {
                                 alt='kép a projekttagokról'
                                 style={{maxWidth: '100%', height: 'auto'}}
                                 priority
+                                sizes="(max-width: 600px) 100vw, 50vw"
                                 >
                                 </Image>
                             </Grid>

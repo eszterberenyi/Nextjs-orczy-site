@@ -23,6 +23,7 @@ export const LightBox = ({
                 key={image.img}
                 src={image.img}
                 alt={`Lightbox ${currentImage}`}
+                sizes="(max-width: 600px) 100vw, 50vw"
                 style={{
                     maxWidth: '100%',
                     maxHeight: '100vh',

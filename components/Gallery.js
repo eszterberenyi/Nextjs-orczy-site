@@ -22,6 +22,7 @@ export const Gallery = ({ photos, onClick, renderAll }) => {
                     src={photos[0].img}
                     alt={photos[0].title}
                     style={{ maxWidth: '100%', height: 'auto' }}
+                    sizes="(max-width: 600px) 100vw, 50vw"
                 />
             ];
         }
