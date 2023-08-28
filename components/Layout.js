@@ -16,7 +16,7 @@ export default function Layout({children, title}) {
             <Head>
                 <meta charSet="UTF-8"/>
                 {/*<link rel="icon" href="/favicon.ico" />*/}
-                <link rel="canonical" href="https://www.szomszedsagbolkozosseget.hu" />
+                <link rel="canonical" href="https://szomszedsagbolkozosseget.hu" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <meta
                     name="description"
