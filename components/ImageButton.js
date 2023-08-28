@@ -2,8 +2,9 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
-import {Grid} from "@mui/material";
+import { Grid } from "@mui/material";
 import Link from "next/link";
+import Image from 'next/image';
 
 const ImageButtonStyle = styled(ButtonBase)(({ theme }) => ({
     position: 'relative',
@@ -25,17 +26,7 @@ const ImageButtonStyle = styled(ButtonBase)(({ theme }) => ({
     },
 }));
 
-const ImageSrc = styled('span')({
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center 40%',
-});
-
-const Image = styled('span')(() => ({
+const ImageOverlay = styled('div')(() => ({
     position: 'absolute',
     left: 0,
     right: 0,
@@ -45,9 +36,10 @@ const Image = styled('span')(() => ({
     alignItems: 'center',
     justifyContent: 'center',
     color: '#f5f5f5',
+    overflow: 'hidden', // Add this line to hide overflow
 }));
 
-const ImageBackdrop = styled('span')(({ theme }) => ({
+const ImageBackdrop = styled('div')(({ theme }) => ({
     position: 'absolute',
     left: 0,
     right: 0,
@@ -58,7 +50,7 @@ const ImageBackdrop = styled('span')(({ theme }) => ({
     transition: theme.transitions.create('opacity'),
 }));
 
-export const ImageButtons = ({images, breakpoints=[12, 6]}) => {
+export const ImageButtons = ({ images, breakpoints = [12, 6] }) => {
     return (
         <Grid item container spacing={2}>
             {images.map((image) => (
@@ -70,10 +62,17 @@ export const ImageButtons = ({images, breakpoints=[12, 6]}) => {
                             width: image.width,
                         }}
                     >
-                        <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
+                        <Image
+                            src={image.url}
+                            alt={image.title}
+                            fill
+                            style={{objectFit: 'cover'}}
+                            quality={100}
+                            sizes="(max-width: 600px) 100vw, 50vw"
+                        />
                         <ImageBackdrop className="MuiImageBackdrop-root" />
                         <Link href={image.link} passHref target={image.target}>
-                            <Image alt={image.title}>
+                            <ImageOverlay>
                                 <Typography
                                     component="span"
                                     variant="subtitle1"
@@ -88,7 +87,7 @@ export const ImageButtons = ({images, breakpoints=[12, 6]}) => {
                                 >
                                     {image.title}
                                 </Typography>
-                            </Image>
+                            </ImageOverlay>
                         </Link>
                     </ImageButtonStyle>
                 </Grid>
@@ -97,7 +96,7 @@ export const ImageButtons = ({images, breakpoints=[12, 6]}) => {
     );
 }
 
-export const ImageButton = ({image, breakpoints=[12, 6]}) => {
+export const ImageButton = ({ image, breakpoints = [12, 6] }) => {
     return (
         <Grid item xs={breakpoints[0]} md={breakpoints[1]}>
             <ImageButtonStyle
@@ -107,10 +106,17 @@ export const ImageButton = ({image, breakpoints=[12, 6]}) => {
                     width: image.width,
                 }}
             >
-                <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
+                <Image
+                    src={image.url}
+                    alt={image.title}
+                    fill
+                    style={{objectFit: 'cover'}}
+                    quality={100}
+                    sizes="(max-width: 600px) 100vw, 50vw"
+                />
                 <ImageBackdrop className="MuiImageBackdrop-root" />
                 <Link href={image.link} passHref target={image.target}>
-                    <Image alt={image.title}>
+                    <ImageOverlay>
                         <Typography
                             component="span"
                             variant="subtitle1"
@@ -125,7 +131,7 @@ export const ImageButton = ({image, breakpoints=[12, 6]}) => {
                         >
                             {image.title}
                         </Typography>
-                    </Image>
+                    </ImageOverlay>
                 </Link>
             </ImageButtonStyle>
         </Grid>

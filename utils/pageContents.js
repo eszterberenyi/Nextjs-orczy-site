@@ -24,6 +24,7 @@ import p6 from '../public/neighborhood/aboutPics/m.jpg'
 import p7 from '../public/neighborhood/aboutPics/majjalis.jpg'
 import p8 from '../public/neighborhood/aboutPics/P1140610.jpg'
 import p9 from '../public/neighborhood/aboutPics/utcazene.jpg'
+import currentPlaceholder from '../public/landing/buttonImages/aktualis_placeholder.jpg'
 
 export const imagePlaceholder = {
     placeholder: placeholder
@@ -45,14 +46,14 @@ export const homeContent = {
     email: 'orczy.szomszedsagi@gmail.com',
     buttonImages: [
         {
-            url: '/landing/buttonImages/aktualis_placeholder.jpg',
+            url: currentPlaceholder,
             title: 'KIÁLLÍTÁS',
             width: '100%',
             link: '/exhibition',
             target: '_self'
         },
         {
-            url: '/landing/buttonImages/aktualis_placeholder.jpg',
+            url: currentPlaceholder,
             title: 'MEGNYITÓ',
             width: '100%',
             link: 'https://www.facebook.com/events/104168436118807',
@@ -167,7 +168,7 @@ export const exhibitionContent = {
 export const workshopsContent = {
     buttonImages: [
         {
-            url: '/landing/buttonImages/aktualis_placeholder.jpg',
+            url: currentPlaceholder,
             title: 'KIÁLLÍTÁS',
             width: '100%',
             link: '/exhibition',
@@ -179,7 +180,7 @@ export const workshopsContent = {
 export const mediaContent = {
     buttonImages: [
         {
-            url: '/landing/buttonImages/aktualis_placeholder.jpg',
+            url: currentPlaceholder,
             title: 'Kiállítás',
             width: '100%',
             link: '/exhibition',
@@ -266,35 +267,35 @@ export const neighborhoodContent = {
     },
     buttonImages: [
         {
-            url: 'landing/nyito.jpg',
+            url: openingImg,
             title: 'ÖNKÉNTESSÉG',
             width: '100%',
             link: '/neighborhood/volunteer',
             target: '_self'
         },
         {
-            url: 'landing/nyito.jpg',
+            url: openingImg,
             title: 'KERT PROJEKT',
             width: '100%',
             link: '/neighborhood/garden',
             target: '_self'
         },
         {
-            url: 'landing/nyito.jpg',
+            url: openingImg,
             title: 'TAJ PROJEKT',
             width: '100%',
             link: '/neighborhood/taj',
             target: '_self'
         },
         {
-            url: 'landing/nyito.jpg',
+            url: openingImg,
             title: 'EDUKÁCIÓ',
             width: '100%',
             link: '/neighborhood/education',
             target: '_self'
         },
         {
-            url: 'landing/nyito.jpg',
+            url: openingImg,
             title: 'IFJÚSÁGI KLUB',
             width: '100%',
             link: '/neighborhood/youthclub',
