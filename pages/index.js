@@ -10,7 +10,6 @@ import React from "react";
 import {getWindowWidth} from "../utils/getWindowWidth";
 
 export default function Home() {
-    const backgroundImageUrl = 'url("/landing/nyito.jpg")'
     const {theme, windowWidth} = getWindowWidth();
 
     return (
@@ -30,19 +29,36 @@ export default function Home() {
                         spacing={0}
                         alignItems="center"
                         justifyContent="center"
-                        style={{
-                            backgroundImage: backgroundImageUrl,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
+                        sx={{
+                            position: 'relative',
                             width: '100%',
-                            height: '100vh',
+                            height: '100vh'
                         }}
                     >
-                        <Grid item>
+                        <Image
+                            src={homeContent.images.opening}
+                            alt="szubjektív térkép"
+                            fill
+                            style={{objectFit: 'cover'}}
+                            quality={100}
+                            priority={true}
+                        />
+                        <Grid
+                            item
+                            container
+                            alignItems="center"
+                            justifyContent="center"
+                            sx={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                            }}
+                        >
                             <Image
                                 src={homeContent.images.theySay}
                                 alt=''
-                                priority={true}
                                 style={{maxWidth: '100%', height: 'auto', paddingLeft: '20px'}}
                             />
                         </Grid>
