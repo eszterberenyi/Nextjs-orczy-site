@@ -30,11 +30,15 @@ export const Gallery = ({ photos, onClick, renderAll }) => {
     return (
         <Grid container>
             {preloadedImages.map((preloadedImage, index) => (
-                <Grid item key={index} style={{ position: 'relative',  padding: '8px',  cursor: 'zoom-in' }}>
+                <Grid
+                    item
+                    key={index}
+                    sx={{ position: 'relative',  padding: '8px',  cursor: 'zoom-in' }}
+                    onClick={(event) => onClick(event, { index: 0 })}
+                >
                     {preloadedImage}
                     {index === 0 && photos.length > 1 && (
                         <div
-                            onClick={(event) => onClick(event, { index: 0 })}
                             style={{
                                 position: 'absolute',
                                 transform: 'translate(-50%, -50%)',
@@ -45,8 +49,8 @@ export const Gallery = ({ photos, onClick, renderAll }) => {
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                top: '50%', // Center vertically
-                                left: '50%', // Center horizontally
+                                top: '50%',
+                                left: '50%',
                                 width: '200px',
                                 boxShadow: '0 5px 10px rgba(0, 0, 0, 0.7)'
                             }}
