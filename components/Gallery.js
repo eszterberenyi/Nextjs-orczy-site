@@ -3,19 +3,35 @@ import Image from "next/image";
 import * as React from "react";
 import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined';
 
-export const Gallery = ({ photos, onClick }) => {
+export const Gallery = ({ photos, onClick, renderAll }) => {
+
+    const preloadedImages = React.useMemo(() => {
+        if (renderAll) {
+            return photos.map((photo, index) => (
+                <Image
+                    key={index}
+                    src={photo.img}
+                    alt={photo.title}
+                    style={{ maxWidth: '100%', height: 'auto' }}
+                />
+            ));
+        } else {
+            return [
+                <Image
+                    key={0}
+                    src={photos[0].img}
+                    alt={photos[0].title}
+                    style={{ maxWidth: '100%', height: 'auto' }}
+                />
+            ];
+        }
+    }, [photos, renderAll]);
+
     return (
         <Grid container>
-            {photos.map((photo, index) => (
+            {preloadedImages.map((preloadedImage, index) => (
                 <Grid item key={index} style={{ position: 'relative',  padding: '8px',  cursor: 'zoom-in' }}>
-                    {index === 0 &&
-                        <Image
-                            src={photo.img}
-                            alt={photo.title}
-                            onClick={(event) => onClick(event, { index: 0 })}
-                            style={{maxWidth: '100%', height: 'auto'}}
-                        />
-                    }
+                    {preloadedImage}
                     {index === 0 && photos.length > 1 && (
                         <div
                             onClick={(event) => onClick(event, { index: 0 })}

@@ -54,7 +54,7 @@ export default function Workshops() {
                             <Grid item lg={12}>
                                 <ImageGallery
                                     images={neighborhoodContent.about.pics}
-                                    galleryType='gallery'
+                                    renderAll={false}
                                 />
                             </Grid>
                         </Grid>

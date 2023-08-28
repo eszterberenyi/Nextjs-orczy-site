@@ -2,14 +2,10 @@ import * as React from 'react';
 import {useState} from "react";
 import {LightBox} from "./LightBox";
 import {Gallery} from "./Gallery";
-import {MobileGallery} from "./MobileGallery";
 
-export const ImageGallery = ({images, galleryType}) => {
+export const ImageGallery = ({images, renderAll}) => {
     const [currentImage, setCurrentImage] = useState(0);
     const [lightBoxIsOpen, setLightBoxIsOpen] = useState(false);
-
-    const GalleryComponent = galleryType === 'gallery' ? Gallery : MobileGallery;
-
 
     const openLightBox = (event, obj) => {
         setCurrentImage(obj.index);
@@ -31,7 +27,7 @@ export const ImageGallery = ({images, galleryType}) => {
 
     return (
         <>
-            <GalleryComponent photos={images} onClick={openLightBox} />
+            <Gallery photos={images} onClick={openLightBox} renderAll={renderAll} />
             <LightBox
                 images={images}
                 onClose={closeLightBox}
